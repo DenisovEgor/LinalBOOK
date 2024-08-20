@@ -1,0 +1,62 @@
+\documentclass[a4paper,12pt,titlepage,final]{article}
+% при подготовке финальной версии отчёта смените опцию draft на final
+
+\usepackage[T1,T2A]{fontenc}     % форматы шрифтов
+\usepackage[utf8x]{inputenc}     % кодировка символов, используемая в данном файле
+\usepackage[russian]{babel}      % пакет русификации
+\usepackage{tikz}                % для создания иллюстраций
+\usepackage{pgfplots}            % для вывода графиков функций
+\usepackage{geometry}		     % для настройки размера полей
+\usepackage{indentfirst}         % для отступа в первом абзаце секции
+\usepackage{listings}			 % для текста Make-файла
+\usepackage{amsmath}			 % для формул
+\usepackage{amssymb}			 % для символов
+
+% выбираем размер листа А4, все поля ставим по 3см
+\geometry{a4paper,left=30mm,top=30mm,bottom=30mm,right=30mm}
+% добавляем точку после номера раздела
+\renewcommand{\thesection}{\arabic{section}.}
+\usepgfplotslibrary{fillbetween} % для изображения областей на графиках
+
+% автор, дата и название документа
+\title{Сборник задач и их решений по предмету "Линейная алгебра", 1 поток, 2 семестр}
+\author{ Над этим дерьмом трудились\\Денисов Егор, Долгушев Глеб, Курбацкий Вячеслав из 201 группы}
+\date{Когда-то в 2024 году...}
+	
+\begin{document}
+
+\maketitle
+
+% Оглавление
+\newpage
+\tableofcontents
+
+% 1 раздел - линейные операторы и жорданки
+\newpage
+\section{Линейные операторы и жорданки}\\
+
+\noindent \underline{Задача 1:} \\
+Докажите, что линейная операция линейных операторов является линейным оператором. \\ \\
+\underline{Решение:} \\
+Пусть $A, B: V \rightarrow W$ - линейные операторы над полем $\mathbb{P}$, a $C = \alpha A + \beta B$ - их линейная комбинация.\\
+Тогда $\forall x, y \in V$ и $\forall \delta, \gamma \in \mathbb{P}$:
+$C(\delta x + \gamma y) = (\alpha A + \beta B) (\delta x + \gamma y) = \alpha A(\delta x + \gamma y) + \beta B(\delta x + \gamma y) =
+\alpha (\delta Ax + \gamma Ay) + \beta (\delta Bx + \gamma By) = \delta (\alpha Ax + \beta Bx) + \gamma (\alpha Ay + \beta By) =
+\delta (\alpha A + \beta B)x + \gamma (\alpha A + \beta B)y = \delta Cx + \gamma Cy$ \\ \\ \\
+
+\noindent \underline{Задача 2:} \\
+Докажите, что произведение линейных операторов является линейным оператором. \\ \\
+\underline{Решение:} \\
+Пусть $A: V \rightarrow W$ и $B: W \rightarrow U$ - линейные операторы над полем $\mathbb{P}$, a $C = B \circ A$ - их произведение.\\
+Тогда $\forall x, y \in V$ и $\forall \alpha, \beta \in \mathbb{P}$:
+$C(\alpha x + \beta y) = B(A(\alpha x + \beta y)) = B(\alpha Ax + \beta Ay) = \alpha B(Ax) + \beta B(Ay) = \alpha Cx + \beta Cy$ \\ \\ \\
+
+\noindent \underline{Задача 3:} \\
+Докажите, что если линейный оператор обратим, то обратный оператор определен однозначно и является линейным. \\ \\
+\underline{Решение:} \\
+
+
+
+
+
+\end{document}
