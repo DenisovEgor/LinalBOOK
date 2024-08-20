@@ -33,29 +33,115 @@
 
 % 1 раздел - линейные операторы и жорданки
 \newpage
-\section{Линейные операторы и жорданки}\\
+\section*{Линейные операторы и жорданки}
+\addcontentsline{toc}{section}{Линейные операторы и жорданки}
 
-\noindent \underline{Задача 1:} \\
-Докажите, что линейная операция линейных операторов является линейным оператором. \\ \\
-\underline{Решение:} \\
+% 1 задача
+\subsection*{Задача 1:}
+\addcontentsline{toc}{subsection}{Задача 1:}
+\noindent Докажите, что линейная операция линейных операторов является линейным оператором. \\ \\
+% Решение 1 задачи
+\textbf{\underline{Решение:}} \\
 Пусть $A, B: V \rightarrow W$ - линейные операторы над полем $\mathbb{P}$, a $C = \alpha A + \beta B$ - их линейная комбинация.\\
 Тогда $\forall x, y \in V$ и $\forall \delta, \gamma \in \mathbb{P}$:
 $C(\delta x + \gamma y) = (\alpha A + \beta B) (\delta x + \gamma y) = \alpha A(\delta x + \gamma y) + \beta B(\delta x + \gamma y) =
 \alpha (\delta Ax + \gamma Ay) + \beta (\delta Bx + \gamma By) = \delta (\alpha Ax + \beta Bx) + \gamma (\alpha Ay + \beta By) =
 \delta (\alpha A + \beta B)x + \gamma (\alpha A + \beta B)y = \delta Cx + \gamma Cy$ \\ \\ \\
 
-\noindent \underline{Задача 2:} \\
-Докажите, что произведение линейных операторов является линейным оператором. \\ \\
-\underline{Решение:} \\
+% 2 задача
+\subsection*{Задача 2:}
+\addcontentsline{toc}{subsection}{Задача 3:}
+\noindent Докажите, что произведение линейных операторов является линейным оператором. \\ \\
+% Решение 2 задачи
+\textbf{\underline{Решение:}} \\
 Пусть $A: V \rightarrow W$ и $B: W \rightarrow U$ - линейные операторы над полем $\mathbb{P}$, a $C = B \circ A$ - их произведение.\\
 Тогда $\forall x, y \in V$ и $\forall \alpha, \beta \in \mathbb{P}$:
 $C(\alpha x + \beta y) = B(A(\alpha x + \beta y)) = B(\alpha Ax + \beta Ay) = \alpha B(Ax) + \beta B(Ay) = \alpha Cx + \beta Cy$ \\ \\ \\
 
-\noindent \underline{Задача 3:} \\
-Докажите, что если линейный оператор обратим, то обратный оператор определен однозначно и является линейным. \\ \\
-\underline{Решение:} \\
+% 3 задача
+\subsection*{Задача 3:}
+\addcontentsline{toc}{subsection}{Задача 3:}
+\noindent Докажите, что если линейный оператор обратим, то обратный оператор определен однозначно и является линейным. \\ \\
+% Решение 3 задачи
+\textbf{\underline{Решение:}} \\
+1. Единственность: \\
+Пусть $A: V \rightarrow W$ - обратимый линейный оператор над полем $\mathbb{P}$, a $B$ и $C$ - его обратные операторы.\\
+Тогда $\forall x \in W: Bx = B(AC)x = (BA)Cx = Cx \Rightarrow B = C$ \\ \\
+2. Линейность: \\
+Пусть $A: V \rightarrow W$ - обратимый линейный оператор над полем $\mathbb{P}$, a $B$ - его обратный оператор.\\
+$\forall y_1, y_2 \in W$ имеют вид $ y_1 = Ax_1, y_2 = Ax_2, x_1, x_2 \in V \Rightarrow x_1 = By_1, x_2 = By_2$ \\
+Тогда $A(\alpha x_1 + \beta x_2) = \alpha (AB)y_1 + \beta (AB)y_2 = \alpha y_1 + \beta y_2 \Rightarrow B(\alpha y_1 + \beta y_2) =$
+(так как $B$ - обратный, то из $Ax = y$ следует $By = x$) $= \alpha x_1 + \beta x_2 = \alpha By_1 + \beta By_2$ \\ \\ \\
 
 
+% 4 задача
+\subsection*{Задача 4:}
+\addcontentsline{toc}{subsection}{Задача 4:}
+\noindent Пусть $V$ и $W$ - конечномерные пространства над общим полем. Докажите, что для обратимости линейного оператора $A: V \rightarrow W$
+необходимо и достаточно выполнение условий $dim V = dim W$ и $ker A = \{0\}$ \\ \\
+% Решение 4 задачи
+\textbf{\underline{Решение:}} \\
+1. $\Rightarrow:$ \\
+Пусть $A: V \rightarrow W$ - обратимый линейный оператор над полем $\mathbb{P}$ и $B$ - его обратный оператор. \\
+Если $kerA \neq \{0\}$, то $\exists x \neq 0: Ax = 0 \Rightarrow x = B(Ax) = B0 = 0 \Rightarrow x = 0$ - противоречие. \\
+Так как $AV = W$, то $dimW \leq dimV$. Поясним этот момент - пусть $x_1, x_2, ..., x_n$ - базис $V$.
+Тогда $\forall y \in W: y = Ax = A(\alpha_1 x_1 + ... + \alpha_n x_n) = \alpha_1 (Ax_1) + ... + \alpha_n  (Ax_n)$.
+То есть все векторы из $W$ выражаются через векторы $Ax_1, ... , Ax_n$. Значит в базисе $W$ векторов не больше, чем $n$.
+Аналогично $BW = V \Rightarrow dimV \leq dimW$. Значит $dimV = dimW$. \\ \\
+2. $\Leftarrow$: \\
+Пусть $dimV = dimW = n$ и $kerA = \{0\}$. Тогда по теореме о ранге и дефекте - $rankA = n$.
+Так как $imA \subseteq W$ и $dim(imA) = dimW$, то $imA = W \Rightarrow$ $A$ - сюръективный. \\
+Так как $kerA = \{0\}$, то $A$ - инъективный (иначе, если $\exists x_1 \neq x_2: Ax_1 = Ax_2$, то $A(x_1 - x_2) = Ax_3 = 0$, где $x_3 \neq 0 \Rightarrow
+kerA \neq \{0\}$ - противоречие). \\
+То есть $\forall y \in W$ $\exists ! x \in V: Ax = y \Rightarrow$ построим оператор $B: W \rightarrow V$ таким образом: $By = x$, где $x$ - такой, что $Ax = y$.
+Построенный оператор $B$ по определению - обратный для $A$ (так как $(AB)y = y$ и $(BA)x = x \forall x \in V, y \in W$). \\ \\ \\
+
+
+% 5 задача
+\subsection*{Задача 5:}
+\addcontentsline{toc}{subsection}{Задача 5:}
+\noindent Докажите, что ядро и образ линейного оператора являются его инвариантными подпространствами. \\ \\
+% Решение 5 задачи
+\textbf{\underline{Решение:}} \\
+Пусть $A: V \rightarrow V$ - линейный оператор над полем $\mathbb{P}$. \\
+$\forall x \in kerA: Ax = 0 \in kerA \Rightarrow kerA$ - инвариантное подпространство. \\
+$\forall y \in imA: Ay \in imA$ по определению образа $\Rightarrow imA$ - инвариантное подпространство. \\ \\ \\
+
+
+% 6 задача
+\subsection*{Задача 6:}
+\addcontentsline{toc}{subsection}{Задача 6:}
+\noindent Докажите, что сумма ранга и дефекта линейного оператора равна размерности его области определения. \\ \\
+% Решение 6 задачи
+\textbf{\underline{Решение:}} \\
+Пусть $A: V \rightarrow W$ - линейный оператор над полем $\mathbb{P}$. \\
+Пусть $defA = d$ и $v_1, ... , v_d$ - базис $kerA$. Дополним его до базиса всего пространства $V$ векторами $v_{d+1}, ... , v_n$. \\
+Тогда $\forall x \in V: x = \alpha_1 v_1 + ... + \alpha_d v_d + \alpha_{d+1} v_{d+1} + ... + \alpha_n v_n \Rightarrow
+Ax = A(\alpha_1 v_1 + ... + \alpha_d v_d + \alpha_{d+1} v_{d+1} + ... + \alpha_n v_n) =
+\alpha_1 Av_1 + ... + \alpha_d Av_d + \alpha_{d+1} Av_{d+1} + ... + \alpha_n Av_n = \alpha_{d+1} Av_{d+1} + ... + \alpha_n Av_n$ (так как $Av_1 = ... = Av_d = 0$) \\
+Таким образом, $imA = L(Av_{d+1}, ... , Av_n)$. Докажем, что эти векторы линейно независимы: \\
+Пусть $\alpha_{d+1} Av_{d+1} + ... + \alpha_n Av_n = 0 \Rightarrow A(\alpha_{d+1} v_{d+1} + ... + \alpha_n v_n) = 0
+\Rightarrow \alpha_{d+1} v_{d+1} + ... + \alpha_n v_n \in kerA \Rightarrow \alpha_{d+1} v_{d+1} + ... + \alpha_n v_n = \alpha_1 v_1 + ... + \alpha_d v_d \Rightarrow
+\alpha_1 v_1 + ... + \alpha_d v_d - \alpha_{d+1} v_{d+1} - ... - \alpha_n v_n = 0 \Rightarrow \alpha_{d+1} = ... = \alpha_n = 0$ (так как $v_1, ... , v_n$ - линейно независимы).
+То есть из $\alpha_{d+1} Av_{d+1} + ... + \alpha_n Av_n = 0$ следует $\alpha_{d+1} = ... = \alpha_n = 0 \Rightarrow Av_{d+1}, ... , Av_n$ - линейно независимые
+$\Rightarrow rankA = n - d \Rightarrow rankA + defA = dimV$. \\ \\ \\
+
+
+% 7 задача
+\subsection*{Задача 7:}
+\addcontentsline{toc}{subsection}{Задача 7:}
+\noindent Докажите, что если сумма ядер двух линейных операторов, действующих на одном пространстве, совпадает с этим пространством,
+то образ суммы этих операторов равен сумме их образов. \\ \\
+% Решение 7 задачи
+\textbf{\underline{Решение:}} \\
+Пусть $A, B: V \rightarrow V$ - линейные операторы над полем $\mathbb{P}$ и $kerA + kerB = V$. \\
+Пусть $x \in im(A + B) \Rightarrow \exists y \in V: (A + B)y = x \Rightarrow Ay + By = x \Rightarrow x \in imA + imB
+\Rightarrow im(A + B) \subseteq imA + imB$. \\
+Пусть $x \in imA + imB \Rightarrow \exists y_1, y_2 \in V: x = Ay_1 + By_2$. Так как $kerA + kerB = V$, то
+$y_1 = u_1 + v_1, y_2 = u_2 + v_2$, где $u_1, u_2 \in kerA; v_1, v_2 \in kerB$. Значит $x = A(u_1 + v_1) + B(u_2 + v_2) =
+Av_1 + Bu_2 = Av_1 + 0 + Bu_2 + 0 = Av_1 + Au_2 + Bu_2 + Bv_1 = (A + B)(v_1 + u_2) \Rightarrow x \in im(A + B)
+\Rightarrow imA + imB \subseteq im(A + B)$.\\
+То есть $im(A + B) = imA + imB$. \\ \\ \\
 
 
 
