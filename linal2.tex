@@ -164,4 +164,34 @@ $P = (A + B)^{-1}A$ и $Q = (A + B)^{-1}B$ коммутируют. \\ \\
 \textbf{\underline{Решение:}} \\
 Заметим, что $P + Q = (A + B)^{-1}(A + B) = I \Rightarrow P = I - Q$. \\
 Тогда $PQ = (I - Q)Q = Q - Q^2 = Q(I - Q) = QP$. \\ \\ \\ 
+
+
+% 10 задача
+\subsection*{Задача 10:}
+\addcontentsline{toc}{subsection}{Задача 10:}
+\noindent Докажите, что для того, чтобы линейный оператор $P: V \rightarrow V$ был оператором проектирования,
+необходимо и достаточно, чтобы $P^2 = P$. \\ \\
+% Решение 10 задачи
+\textbf{\underline{Решение:}} \\
+1. $\Rightarrow:$ \\
+Пусть $V = L \oplus M$ и $P$ - оператор проектирования на $L$ параллельно $M$, то есть
+$\forall x \in V: x = u + v; u \in L, v \in M$ имеем $Px = u$. \\
+Тогда $\forall x \in V: x = u + v$ выполняется $P^2x = P(Px) = P(u) = u = Px \Rightarrow P^2 = P$. \\ \\
+2. $\Leftarrow:$ \\
+Пусть $P^2 = P$. Тогда $V = L \oplus M, где L = imP, M = kerP$. Докажем это: \\
+\begin {itemize}
+\item По теореме о ранге и дефекте знаем, что $dim(imP) + dim(kerP) = rankP + defP = dim V$ \\
+\item Если $x \in kerP \cap imP$, то $Px = 0$ и $x = Py \Rightarrow Px = P^2y = Py = x = 0 \Rightarrow kerP \cap imP = \{0\}$\\
+\item Тогда, если $x_1, ... , x_d$ - базис $kerP$, а $x_{d+1}, ... , x_n$ - базис $imP$, то
+$x_1, ... , x_n$ все вместе линейно независимы (так как если $\alpha_1 x_1 + ... + \alpha_n x_n = 0$, то
+$\alpha_1 x_1 + ... \alpha_d x_d = -\alpha_{d+1} x_{d+1} - ... - \alpha_n x_n$ и
+$\alpha_1 x_1 + ... \alpha_d x_d \in kerP$, a $-\alpha_{d+1} x_{d+1} - ... - \alpha_n x_n \in imP
+\Rightarrow \alpha_1 x_1 + ... \alpha_d x_d = -\alpha_{d+1} x_{d+1} - ... - \alpha_n x_n = 0
+\Rightarrow \alpha_1 = ... = \alpha_n  = 0$). То есть $x_1, ... , x_n$ - базис $V$ (так как
+это система линейно независимых векторов из $V$, число векторов в которой равно размерности $V$) $\Rightarrow
+\forall x \in V \exists !$ $u \in kerP, v \in im P: x = u + v$ (если $x = \alpha_1 x_1 + ... + \alpha_n x_n$, то
+$u = \alpha_1 x_1 + ... + \alpha_d x_d, v = \alpha_{d+1} x_{d+1} + ... + \alpha_n x_n$)\\
+\end {itemize}
+Таким образом, $V = L \oplus M$ и $P$ - оператор проектирования на $L$ параллельно $M$, так как
+$\forall x \in V: x = u + v; u \in kerP, v \in im P$ имеем $Px = Pu + Pv = Pv \in imP$. \\ \\ \\
 \end{document}
