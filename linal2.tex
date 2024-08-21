@@ -243,6 +243,163 @@ $Q = P_{ge}, P = P_{fh}$. Тогда $C = P^{-1}BQ^{-1} = P_{hf} [A]_{fe} P_{eg}
 |P||B - \lambda I||P^{-1}| = |P||B - \lambda I|\frac{1}{|P|} = |B - \lambda I|$. \\ \\ \\
 
 
+% 14 задача
+\subsection*{Задача 14:}
+\addcontentsline{toc}{subsection}{Задача 14:}
+\noindent Найдите характеристический многочлен матрицы $A = $
+$\begin{pmatrix}
+    0 & 0 & \cdots & 0 & 1 \\
+    0 & 0 & \cdots & 1 & 0 \\
+    \vdots & \vdots & \cdots & \vdots & \vdots \\
+    0 & 1 & \cdots & 0 & 0 \\
+    1 & 0 & \cdots & 0 & 0
+\end{pmatrix}_{n \times n}$ \\ \\
+% Решение 14 задачи
+\textbf{\underline{Решение:}} \\
+1. $n = 2k, k \in \mathbb{N}$: \\
+$|A - \lambda I| = 
+\begin{vmatrix}
+    -\lambda & 0 & \cdots & \cdots & 0 & 1 \\
+    \vdots & \vdots & \cdots & \cdots & \vdots & \vdots \\ 
+    0 & \cdots & -\lambda & 1 & \cdots & 0 \\
+    0 & \cdots & 1 & -\lambda & \cdots & 0 \\
+    \vdots & \vdots & \cdots & \cdots & \vdots & \vdots \\ 
+    1 & 0 & \cdots & \cdots & 0 & -\lambda
+\end{vmatrix} = 
+\underbrace{\begin{vmatrix}
+    -\lambda & 1 \\
+    1 & -\lambda
+\end{vmatrix}
+\begin{vmatrix}
+    -\lambda & 0 & \cdots & \cdots & 0 & 1 \\
+    \vdots & \vdots & \cdots & \cdots & \vdots & \vdots \\ 
+    0 & \cdots & -\lambda & 1 & \cdots & 0 \\
+    0 & \cdots & 1 & -\lambda & \cdots & 0 \\
+    \vdots & \vdots & \cdots & \cdots & \vdots & \vdots \\ 
+    1 & 0 & \cdots & \cdots & 0 & -\lambda
+\end{vmatrix}_{(n - 2) \times (n - 2)}}_{\text{применили теорему Лапласа по первой и последней строке}} = 
+\underbrace{\begin{vmatrix}
+    -\lambda & 1 \\
+    1 & -\lambda
+\end{vmatrix}^{\frac{n}{2}}}_{\text{продолжили Лапласом}} = (\lambda - 1)^{\frac{n}{2}}(\lambda + 1)^{\frac{n}{2}}$ \\ \\ \\
+2. $n = 2k + 1, k \in \mathbb{N}$: \\
+$|A - \lambda I| = 
+\begin{vmatrix}
+    -\lambda & 0 & \cdots & 0 & 1 \\
+    \vdots & \vdots & \cdots & \vdots & \vdots \\ 
+    0 & \cdots & 1 -\lambda & \cdots & 0 \\
+    \vdots & \vdots & \cdots & \vdots & \vdots \\ 
+    1 & 0 & \cdots & 0 & -\lambda
+\end{vmatrix} =
+\underbrace{(1 - \lambda)
+\begin{vmatrix}
+    -\lambda & 0 & \cdots & \cdots & 0 & 1 \\
+    \vdots & \vdots & \cdots & \cdots & \vdots & \vdots \\ 
+    0 & \cdots & -\lambda & 1 & \cdots & 0 \\
+    0 & \cdots & 1 & -\lambda & \cdots & 0 \\
+    \vdots & \vdots & \cdots & \cdots & \vdots & \vdots \\ 
+    1 & 0 & \cdots & \cdots & 0 & -\lambda
+\end{vmatrix}_{(n - 1) \times (n - 1)}}_{\text{Применили теорему Лапласа по центральной строке}} = 
+\underbrace{(1 - \lambda)(\lambda - 1)^{\frac{n - 1}{2}}(\lambda + 1)^{\frac{n - 1}{2}}}_{\text{воспользовались первым пунктом решения}} = 
+-(\lambda - 1)^{\frac{n + 1}{2}}(\lambda + 1)^{\frac{n - 1}{2}}$ \\ \\ \\
+
+
+% 15 задача
+\subsection*{Задача 15:}
+\addcontentsline{toc}{subsection}{Задача 15:}
+\noindent Найдите все инвариантные подпространства оператора дифференцирования в пространстве
+всех вещественных многочленов. \\ \\
+% Решение 15 задачи
+\textbf{\underline{Решение:}} \\
+
+
+% 16 задача
+\subsection*{Задача 16:}
+\addcontentsline{toc}{subsection}{Задача 16:}
+\noindent Докажите, что число является собственным значением линейного оператора на конечномерном
+пространстве в том и только том случае, когда оно является корнем его характеристического
+многочлена. \\ \\
+% Решение 16 задачи
+\textbf{\underline{Решение:}} \\
+1. $\Rightarrow:$ \\
+Пусть $\lambda$ - собственное значение линейного оператора $A: V \rightarrow V$ над полем $\mathbb{P}$.
+Тогда $\exists x \neq 0: Ax = \lambda x \Rightarrow (A - \lambda I)x = 0 \Rightarrow |A - \lambda I| = 0$. \\ \\
+2. $\Leftarrow:$ \\
+Пусть $\lambda$ - корень характеристического многочлена линейного оператора $A: V \rightarrow V$ над полем $\mathbb{P}$.
+Тогда $|A - \lambda I| = 0 \Rightarrow \exists x \neq 0: (A - \lambda I)x = 0 \Rightarrow Ax = \lambda x
+\Rightarrow \lambda$ - собственное значение $A$. \\ \\ \\
+
+
+% 17 задача
+\subsection*{Задача 17:}
+\addcontentsline{toc}{subsection}{Задача 17:}
+\noindent Линейный оператор действует в n-мерном пространстве над полем, содержащим все корни его
+характеристического многочлена. Докажите, что при любом заранее предписанном порядке
+корней существует базис пространства, в котором матрица оператора приобретает верхний
+треугольный вид с главной диагональю, заполненной корнями в заранее предписанном порядке. \\ \\
+% Решение 17 задачи
+\textbf{\underline{Решение:}} \\
+
+
+% 18 задача
+\subsection*{Задача 18:}
+\addcontentsline{toc}{subsection}{Задача 18:}
+\noindent Докажите, что если матрицы $A$ и $B$ подобны, то для произвольного многочлена $f(\lambda)$ матрицы
+$f(A)$ и $f(B)$ тоже подобны. \\ \\
+% Решение 18 задачи
+\textbf{\underline{Решение:}} \\
+Пусть $A = PBP^{-1}$ и $f(\lambda) = a_0 + a_1 \lambda + ... + a_n \lambda^n$.
+Тогда $f(A) = a_0I + a_1A + ... + a_nA^n = a_0I + a_1PBP^{-1} + ... + a_n(PBP^{-1})^n =
+a_0PIP^{-1} + a_1PBP^{-1} + ... + a_nPB^nP^{-1} = P(a_0I + a_1B + ... + a_nB^n)P^{-1} = Pf(B)P^{-1}$ 
+(воспользовались тем, что $(PBP^{-1})^n = \underbrace{PBP^{-1}PB \cdots PBP^{-1}}_{\text{n раз}} = PB^nP^{-1}$)\\ \\ \\
+
+
+% 19 задача
+\subsection*{Задача 19:}
+\addcontentsline{toc}{subsection}{Задача 19:}
+\noindent Докажите, что минимальный многочлен, аннулирующий квадратную матрицу, является 
+делителем ее характеристического многочлена. \\ \\
+% Решение 19 задачи
+\textbf{\underline{Решение:}} \\
+Пусть $A \in \mathbb{R}^{n \times n}$ - квадратная матрица, $f(\lambda)$ - ее минимальный многочлен, 
+а $g(\lambda)$ - характеристический. \\
+Предположим противное - пусть $g(\lambda) \mathrel{\vdots \hspace{-0.60em} \diagup} f(\lambda)$.
+Тогда $g(\lambda) = f(\lambda)h(\lambda) + r(\lambda)$, $deg(r) < deg(f)$.\\Тогда
+$g(A) = f(A)h(A) + r(A) \Rightarrow 0 = 0 \times h(A) + r(A) \Rightarrow r(A) = 0$\\
+($g(A) = 0$ по теореме Кэли-Гамильтона, $f(A) = 0$ по условию) \\
+То есть $r(A) = 0, deg(r) < deg(f) \Rightarrow f(\lambda)$ - не минимальный многочлен $\Rightarrow$ противоречие.
+Значит $g(\lambda)$ $\vdots$ $f(\lambda)$. \\ \\ \\ 
+
+
+% 20 задача
+\subsection*{Задача 20:}
+\addcontentsline{toc}{subsection}{Задача 20:}
+\noindent Докажите, что любая квадратная матрица с элементами из произвольного поля аннулируется
+своим характеристическим многочленом. \\ \\
+% Решение 20 задачи
+\textbf{\underline{Решение:}} \\
+
+
+% 21 задача
+\subsection*{Задача 21:}
+\addcontentsline{toc}{subsection}{Задача 21:}
+\noindent Докажите, что любой приведенный многочлен степени выше первой является характеристическим многочленом некоторой матрицы. \\ \\
+% Решение 21 задачи
+\textbf{\underline{Решение:}} \\
+
+
+% 22 задача
+\subsection*{Задача 22:}
+\addcontentsline{toc}{subsection}{Задача 22:}
+\noindent Преобразование $A \rightarrow PAP^{-1}$ будем называть элементарным преобразованием подобия, если
+матрица $P$ является либо матрицей перестановки, либо матрицей вида $I + \gamma E_{kl}$ , где матрица
+$E_{kl}$ отличается от нулевой матрицы только одним элементом — единицей в позиции $(k,l)$ при
+$k \neq l$, а число $\gamma$ может быть произвольным и выбираетcя в зависимости от ситуации. Докажите,
+что матрица порядка $n$ с помощью $O(n^2)$ элементарных преобразований подобия приводится к
+верхнему почти треугольному виду. \\ \\
+% Решение 22 задачи
+\textbf{\underline{Решение:}} \\
+
 
 
 \end{document}
