@@ -46,7 +46,7 @@
 Тогда $\forall x, y \in V$ и $\forall \delta, \gamma \in \mathbb{P}$:
 $C(\delta x + \gamma y) = (\alpha A + \beta B) (\delta x + \gamma y) = \alpha A(\delta x + \gamma y) + \beta B(\delta x + \gamma y) =
 \alpha (\delta Ax + \gamma Ay) + \beta (\delta Bx + \gamma By) = \delta (\alpha Ax + \beta Bx) + \gamma (\alpha Ay + \beta By) =
-\delta (\alpha A + \beta B)x + \gamma (\alpha A + \beta B)y = \delta Cx + \gamma Cy$ \\ \\ \\
+\delta (\alpha A + \beta B)x + \gamma (\alpha A + \beta B)y = \delta Cx + \gamma Cy$ \\ $\blacksquare$ \\ \\ \\
 
 % 2 задача
 \subsection*{Задача 2:}
@@ -56,7 +56,7 @@ $C(\delta x + \gamma y) = (\alpha A + \beta B) (\delta x + \gamma y) = \alpha A(
 \textbf{\underline{Решение:}} \\
 Пусть $A: V \rightarrow W$ и $B: W \rightarrow U$ - линейные операторы над полем $\mathbb{P}$, a $C = B \circ A$ - их произведение.\\
 Тогда $\forall x, y \in V$ и $\forall \alpha, \beta \in \mathbb{P}$:
-$C(\alpha x + \beta y) = B(A(\alpha x + \beta y)) = B(\alpha Ax + \beta Ay) = \alpha B(Ax) + \beta B(Ay) = \alpha Cx + \beta Cy$ \\ \\ \\
+$C(\alpha x + \beta y) = B(A(\alpha x + \beta y)) = B(\alpha Ax + \beta Ay) = \alpha B(Ax) + \beta B(Ay) = \alpha Cx + \beta Cy$ \\ $\blacksquare$ \\ \\ \\
 
 % 3 задача
 \subsection*{Задача 3:}
@@ -71,7 +71,7 @@ $C(\alpha x + \beta y) = B(A(\alpha x + \beta y)) = B(\alpha Ax + \beta Ay) = \a
 Пусть $A: V \rightarrow W$ - обратимый линейный оператор над полем $\mathbb{P}$, a $B$ - его обратный оператор.\\
 $\forall y_1, y_2 \in W$ имеют вид $ y_1 = Ax_1, y_2 = Ax_2, x_1, x_2 \in V \Rightarrow x_1 = By_1, x_2 = By_2$ \\
 Тогда $A(\alpha x_1 + \beta x_2) = \alpha (AB)y_1 + \beta (AB)y_2 = \alpha y_1 + \beta y_2 \Rightarrow B(\alpha y_1 + \beta y_2) =$
-(так как $B$ - обратный, то из $Ax = y$ следует $By = x$) $= \alpha x_1 + \beta x_2 = \alpha By_1 + \beta By_2$ \\ \\ \\
+(так как $B$ - обратный, то из $Ax = y$ следует $By = x$) $= \alpha x_1 + \beta x_2 = \alpha By_1 + \beta By_2$ \\ $\blacksquare$ \\ \\ \\
 
 
 % 4 задача
@@ -94,7 +94,7 @@ $\forall y_1, y_2 \in W$ имеют вид $ y_1 = Ax_1, y_2 = Ax_2, x_1, x_2 \i
 Так как $kerA = \{0\}$, то $A$ - инъективный (иначе, если $\exists x_1 \neq x_2: Ax_1 = Ax_2$, то $A(x_1 - x_2) = Ax_3 = 0$, где $x_3 \neq 0 \Rightarrow
 kerA \neq \{0\}$ - противоречие). \\
 То есть $\forall y \in W$ $\exists ! x \in V: Ax = y \Rightarrow$ построим оператор $B: W \rightarrow V$ таким образом: $By = x$, где $x$ - такой, что $Ax = y$.
-Построенный оператор $B$ по определению - обратный для $A$ (так как $(AB)y = y$ и $(BA)x = x \forall x \in V, y \in W$). \\ \\ \\
+Построенный оператор $B$ по определению - обратный для $A$ (так как $(AB)y = y$ и $(BA)x = x \forall x \in V, y \in W$). \\ $\blacksquare$ \\ \\ \\
 
 
 % 5 задача
@@ -105,7 +105,7 @@ kerA \neq \{0\}$ - противоречие). \\
 \textbf{\underline{Решение:}} \\
 Пусть $A: V \rightarrow V$ - линейный оператор над полем $\mathbb{P}$. \\
 $\forall x \in kerA: Ax = 0 \in kerA \Rightarrow kerA$ - инвариантное подпространство. \\
-$\forall y \in imA: Ay \in imA$ по определению образа $\Rightarrow imA$ - инвариантное подпространство. \\ \\ \\
+$\forall y \in imA: Ay \in imA$ по определению образа $\Rightarrow imA$ - инвариантное подпространство. \\ $\blacksquare$ \\ \\ \\
 
 
 % 6 задача
@@ -124,7 +124,7 @@ Ax = A(\alpha_1 v_1 + ... + \alpha_d v_d + \alpha_{d+1} v_{d+1} + ... + \alpha_n
 \Rightarrow \alpha_{d+1} v_{d+1} + ... + \alpha_n v_n \in kerA \Rightarrow \alpha_{d+1} v_{d+1} + ... + \alpha_n v_n = \alpha_1 v_1 + ... + \alpha_d v_d \Rightarrow
 \alpha_1 v_1 + ... + \alpha_d v_d - \alpha_{d+1} v_{d+1} - ... - \alpha_n v_n = 0 \Rightarrow \alpha_{d+1} = ... = \alpha_n = 0$ (так как $v_1, ... , v_n$ - линейно независимы).
 То есть из $\alpha_{d+1} Av_{d+1} + ... + \alpha_n Av_n = 0$ следует $\alpha_{d+1} = ... = \alpha_n = 0 \Rightarrow Av_{d+1}, ... , Av_n$ - линейно независимые
-$\Rightarrow rankA = n - d \Rightarrow rankA + defA = dimV$. \\ \\ \\
+$\Rightarrow rankA = n - d \Rightarrow rankA + defA = dimV$. \\ $\blacksquare$ \\ \\ \\
 
 
 % 7 задача
@@ -141,7 +141,7 @@ $\Rightarrow rankA = n - d \Rightarrow rankA + defA = dimV$. \\ \\ \\
 $y_1 = u_1 + v_1, y_2 = u_2 + v_2$, где $u_1, u_2 \in kerA; v_1, v_2 \in kerB$. Значит $x = A(u_1 + v_1) + B(u_2 + v_2) =
 Av_1 + Bu_2 = Av_1 + 0 + Bu_2 + 0 = Av_1 + Au_2 + Bu_2 + Bv_1 = (A + B)(v_1 + u_2) \Rightarrow x \in im(A + B)
 \Rightarrow imA + imB \subseteq im(A + B)$.\\
-То есть $im(A + B) = imA + imB$. \\ \\ \\
+То есть $im(A + B) = imA + imB$. \\ $\blacksquare$ \\ \\ \\
 
 
 % 8 задача
@@ -152,7 +152,7 @@ $I - A$ обратим. \\ \\
 % Решение 8 задачи
 \textbf{\underline{Решение:}} \\
 Пусть $A: V \rightarrow V$ - линейный оператор над полем $\mathbb{P}$ и $A^m = 0$. \\
-Тогда $(I - A)(I + A + A^2 + ... + A^{m-1}) = (I + A + A^2 + ... + A^{m-1})(I - A) = I - A^m = I \Rightarrow I - A$ - обратим. \\ \\ \\
+Тогда $(I - A)(I + A + A^2 + ... + A^{m-1}) = (I + A + A^2 + ... + A^{m-1})(I - A) = I - A^m = I \Rightarrow I - A$ - обратим. \\ $\blacksquare$ \\ \\ \\
 
 
 % 9 задача
@@ -163,7 +163,7 @@ $P = (A + B)^{-1}A$ и $Q = (A + B)^{-1}B$ коммутируют. \\ \\
 % Решение 9 задачи
 \textbf{\underline{Решение:}} \\
 Заметим, что $P + Q = (A + B)^{-1}(A + B) = I \Rightarrow P = I - Q$. \\
-Тогда $PQ = (I - Q)Q = Q - Q^2 = Q(I - Q) = QP$. \\ \\ \\ 
+Тогда $PQ = (I - Q)Q = Q - Q^2 = Q(I - Q) = QP$. \\ $\blacksquare$ \\ \\ \\ 
 
 
 % 10 задача
@@ -193,7 +193,7 @@ $\alpha_1 x_1 + ... \alpha_d x_d \in kerP$, a $-\alpha_{d+1} x_{d+1} - ... - \al
 $u = \alpha_1 x_1 + ... + \alpha_d x_d, v = \alpha_{d+1} x_{d+1} + ... + \alpha_n x_n$)\\
 \end {itemize}
 Таким образом, $V = L \oplus M$ и $P$ - оператор проектирования на $L$ параллельно $M$, так как
-$\forall x \in V: x = u + v; u \in kerP, v \in im P$ имеем $Px = Pu + Pv = Pv \in imP$. \\ \\ \\
+$\forall x \in V: x = u + v; u \in kerP, v \in im P$ имеем $Px = Pu + Pv = Pv \in imP$. \\ $\blacksquare$ \\ \\ \\
 
 
 % 11 задача
@@ -218,7 +218,7 @@ $e, g \in V; f, h \in W$ \\
 $[A]_{fe} = B$ (просто определяем действие оператора на базисные векторы так, чтобы $Ae_i = b_{1i}f_1 + ... + b_{mi} f_m$) \\
 Затем построим базисы $g \in V, h \in W$ так, чтобы матрицы $P, Q$ были матрицами перехода:
 $Q = P_{ge}, P = P_{fh}$. Тогда $C = P^{-1}BQ^{-1} = P_{hf} [A]_{fe} P_{eg} = [A]_{hg} \Rightarrow$
-матрицы $B, C$ являются матрицами одного оператора в парах базисов $e, f$ и $g, h$. \\ \\ \\
+матрицы $B, C$ являются матрицами одного оператора в парах базисов $e, f$ и $g, h$. \\ $\blacksquare$ \\ \\ \\
 
 
 % 12 задача
@@ -229,7 +229,7 @@ $Q = P_{ge}, P = P_{fh}$. Тогда $C = P^{-1}BQ^{-1} = P_{hf} [A]_{fe} P_{eg}
 \textbf{\underline{Решение:}} \\
 Пусть $A, B \in \mathbb{R}^{n \times n}$ - подобные матрицы (то есть $A = PBP^{-1}$).
 Тогда $|A| = |PBP^{-1}| = |P||B||P^{-1}| = |P||B|\frac{1}{|P|} = |B|$. \\
-Также $trA = trP(BP^{-1}) = tr(BP^{-1})P = trB$. \\ \\ \\
+Также $trA = trP(BP^{-1}) = tr(BP^{-1})P = trB$. \\ $\blacksquare$ \\ \\ \\
 
 
 % 13 задача
@@ -240,7 +240,7 @@ $Q = P_{ge}, P = P_{fh}$. Тогда $C = P^{-1}BQ^{-1} = P_{hf} [A]_{fe} P_{eg}
 \textbf{\underline{Решение:}} \\
 Пусть $A, B \in \mathbb{R}^{n \times n}$ - подобные матрицы (то есть $A = PBP^{-1}$).
 Тогда $|A - \lambda I| = |PBP^{-1} - \lambda I| = |P(B - \lambda I)P^{-1}| = 
-|P||B - \lambda I||P^{-1}| = |P||B - \lambda I|\frac{1}{|P|} = |B - \lambda I|$. \\ \\ \\
+|P||B - \lambda I||P^{-1}| = |P||B - \lambda I|\frac{1}{|P|} = |B - \lambda I|$. \\ $\blacksquare$ \\ \\ \\
 
 
 % 14 задача
@@ -301,7 +301,7 @@ $|A - \lambda I| =
     1 & 0 & \cdots & \cdots & 0 & -\lambda
 \end{vmatrix}_{(n - 1) \times (n - 1)}}_{\text{Применили теорему Лапласа по центральной строке}} = 
 \underbrace{(1 - \lambda)(\lambda - 1)^{\frac{n - 1}{2}}(\lambda + 1)^{\frac{n - 1}{2}}}_{\text{воспользовались первым пунктом решения}} = 
--(\lambda - 1)^{\frac{n + 1}{2}}(\lambda + 1)^{\frac{n - 1}{2}}$ \\ \\ \\
+-(\lambda - 1)^{\frac{n + 1}{2}}(\lambda + 1)^{\frac{n - 1}{2}}$ \\ $\blacksquare$ \\ \\ \\
 
 
 % 15 задача
@@ -327,7 +327,7 @@ $|A - \lambda I| =
 2. $\Leftarrow:$ \\
 Пусть $\lambda$ - корень характеристического многочлена линейного оператора $A: V \rightarrow V$ над полем $\mathbb{P}$.
 Тогда $|A - \lambda I| = 0 \Rightarrow \exists x \neq 0: (A - \lambda I)x = 0 \Rightarrow Ax = \lambda x
-\Rightarrow \lambda$ - собственное значение $A$. \\ \\ \\
+\Rightarrow \lambda$ - собственное значение $A$. \\ $\blacksquare$ \\ \\ \\
 
 
 % 17 задача
@@ -351,7 +351,7 @@ $f(A)$ и $f(B)$ тоже подобны. \\ \\
 Пусть $A = PBP^{-1}$ и $f(\lambda) = a_0 + a_1 \lambda + ... + a_n \lambda^n$.
 Тогда $f(A) = a_0I + a_1A + ... + a_nA^n = a_0I + a_1PBP^{-1} + ... + a_n(PBP^{-1})^n =
 a_0PIP^{-1} + a_1PBP^{-1} + ... + a_nPB^nP^{-1} = P(a_0I + a_1B + ... + a_nB^n)P^{-1} = Pf(B)P^{-1}$ 
-(воспользовались тем, что $(PBP^{-1})^n = \underbrace{PBP^{-1}PB \cdots PBP^{-1}}_{\text{n раз}} = PB^nP^{-1}$)\\ \\ \\
+(воспользовались тем, что $(PBP^{-1})^n = \underbrace{PBP^{-1}PB \cdots PBP^{-1}}_{\text{n раз}} = PB^nP^{-1}$)\\ $\blacksquare$ \\ \\ \\
 
 
 % 19 задача
@@ -368,7 +368,7 @@ a_0PIP^{-1} + a_1PBP^{-1} + ... + a_nPB^nP^{-1} = P(a_0I + a_1B + ... + a_nB^n)P
 $g(A) = f(A)h(A) + r(A) \Rightarrow 0 = 0 \times h(A) + r(A) \Rightarrow r(A) = 0$\\
 ($g(A) = 0$ по теореме Кэли-Гамильтона, $f(A) = 0$ по условию) \\
 То есть $r(A) = 0, deg(r) < deg(f) \Rightarrow f(\lambda)$ - не минимальный многочлен $\Rightarrow$ противоречие.
-Значит $g(\lambda)$ $\vdots$ $f(\lambda)$. \\ \\ \\ 
+Значит $g(\lambda)$ $\vdots$ $f(\lambda)$. \\ $\blacksquare$ \\ \\ \\ 
 
 
 % 20 задача
@@ -399,6 +399,72 @@ $k \neq l$, а число $\gamma$ может быть произвольным 
 верхнему почти треугольному виду. \\ \\
 % Решение 22 задачи
 \textbf{\underline{Решение:}} \\
+
+
+% 23 задача
+\subsection*{Задача 23:}
+\addcontentsline{toc}{subsection}{Задача 23:}
+\noindent Докажите, что алгебраическая кратность собственного значения не меньше его геометрической кратности. \\ \\
+% Решение 23 задачи
+\textbf{\underline{Решение:}} \\
+Пусть $A: V \rightarrow V$ - линейный оператор над полем $\mathbb{P}$, $dimV = n$. \\
+Пусть $\lambda_i$ - собственное значение $A$. Рассмотрим произвольный базис, в котором первые 
+$l_i$ векторов принадлежат собственному пространству для $\lambda_i$ (т.е $ker(A - \lambda_i I)$).
+В этом базисе матрица оператора имеет вид:
+$
+\begin{pmatrix}
+    \lambda_i I_{l_i} & A_{12} \\
+    0 & A_{22}
+\end{pmatrix} \Rightarrow |A - \lambda I_n| = 
+(\lambda_i - \lambda)^{l_i} |A_{22} - \lambda I_{n - l_i}| \Rightarrow$ алгебраическая кратность $\lambda_i$ не меньше $l_i$. \\ $\blacksquare$ \\ \\ \\
+
+
+% 24 задача
+\subsection*{Задача 24:}
+\addcontentsline{toc}{subsection}{Задача 24:}
+\noindent Докажите, что собственные векторы для попарно различных собственных значений линейно независимы. \\ \\
+% Решение 24 задачи
+\textbf{\underline{Решение:}} \\
+Пусть $A: V \rightarrow V$ - линейный оператор над полем $\mathbb{P}$, $\lambda_1, ... , \lambda_m$ - попарно различные собственные значения $A$ 
+и $x_1, ... , x_m$ - соответствующие собственные векторы. \\
+Рассмотрим их линейную комбинацию $\alpha_1 x_1 + ... + \alpha_m x_m = 0$. Умножим это равенство на $\lambda_m$, 
+а также подействуем на обе его стороны линейным оператором $A$. В результате получим два равенства: \\
+$
+\begin{cases}
+    \alpha_1 \lambda_1 x_1 + ... + \alpha_m \lambda_m x_m = 0 \\
+    \alpha_1 \lambda_m x_1 + ... + \alpha_m \lambda_m x_m = 0
+\end{cases}
+$ \\
+Вычитаем из первого второе:
+$\alpha_1 (\lambda_1 - \lambda_m)x_1 + ... + \alpha_{m - 1} (\lambda_{m - 1} - \lambda_m)x_{m - 1} = 0$ \\
+То есть если $x_1, ... , x_{m - 1}$ - линейно независимы, то $\alpha_1 = ... = \alpha_{m - 1} = 0 \Rightarrow
+\alpha_m x_m = 0 \Rightarrow \alpha_m = 0$ (так как $x_m \neq 0$) \\
+Далее применяем индукцию (база - 1 вектор очевидно линейно независим сам с собой). \\ $\blacksquare$ \\ \\ \\
+
+
+% 25 задача
+\subsection*{Задача 25:}
+\addcontentsline{toc}{subsection}{Задача 25:}
+\noindent Докажите, что если матрица порядка $n$ имеет $n$ попарно различных собственных значений, то она диагонализуема. \\ \\
+% Решение 25 задачи
+\textbf{\underline{Решение:}} \\
+Пусть $A \in \mathbb{R}^{n \times n}$ - матрица с $n$ попарно различными собственными значениями $\lambda_1, ... , \lambda_n$ и 
+$x_1, ... , x_n$ - соответствующие собственные векторы. \\
+Из предыдущей задачи знаем, что векторы $x_1, ... , x_n$ - линейно независимы $\Rightarrow$ они образуют
+базис $\mathbb{R}^n$. \\
+Составим из них матрицу $X = (x_1, ... , x_n)$.
+Тогда $AX = X
+\begin{pmatrix}
+    \lambda_1 & & \\
+     & \ddots & \\
+     & & \lambda_n
+\end{pmatrix}
+$ (так как $Ax_i = \lambda_i x_i$) $\Rightarrow XAX^{-1} =
+\begin{pmatrix}
+    \lambda_1 & & \\
+     & \ddots & \\
+     & & \lambda_n
+\end{pmatrix}$ - диагональная матрица $\Rightarrow$ $A$ - диагонализуема. \\ $\blacksquare$ \\ \\ \\
 
 
 
