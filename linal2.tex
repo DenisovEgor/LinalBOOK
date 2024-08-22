@@ -311,6 +311,13 @@ $|A - \lambda I| =
 всех вещественных многочленов. \\ \\
 % Решение 15 задачи
 \textbf{\underline{Решение:}} \\
+Заметим, что при действии оператора дифференцирования степень многочлена понижается на 1. Значит, все пространства 
+многочленов степени не выше $n$ будут инвариантными $\forall n \in \mathbb{N} \cup \{0\}$. \\
+Докажем, что других инвариантных пространств нет:\\
+Пусть $M$ - произвольное инвариантное подпространство оператора дифференцирования и $f$ - многочлен максимальной 
+для $M$ степени $m$. Дифференцируя его, получим многочлены степеней $0, 1, ... , m - 1$, которые 
+лежат в $M$ в силу того, что это инвариантное подпространство. Таким образом, $M$ совпадает с пространством многочленов 
+степени не выше $m$. \\ $\blacksquare$ \\ \\ \\
 
 
 % 16 задача
@@ -339,6 +346,21 @@ $|A - \lambda I| =
 треугольный вид с главной диагональю, заполненной корнями в заранее предписанном порядке. \\ \\
 % Решение 17 задачи
 \textbf{\underline{Решение:}} \\
+Пусть $A: V \rightarrow V$ - линейный оператор, действующий над полем $\mathbb{P}$, $dimV = n$, 
+$\lambda_1, ... , \lambda_n \in \mathbb{P}$ - корни характеристического многочлена $A$ с учетом кратностей. \\
+Пусть вектор $e_1$ - собственный для собственного значения $\lambda_1$. Достроим его до базиса 
+$e_1, ... , e_n$. Тогда в этом базисе матрица оператора имеет вид: \\
+$
+\begin{pmatrix}
+    \lambda_1 & \times & \cdots & \times \\
+    0 & \times & & \vdots \\
+    \vdots & & \ddots & \vdots \\
+    0 & \cdots & \cdots & \times
+\end{pmatrix} = 
+\begin{pmatrix}
+    \lambda_1 & \times \\
+    0 & B
+\end{pmatrix}, B \in \mathbb{R}^{(n - 1) \times (n - 1)}$ \\
 
 
 % 18 задача
@@ -378,6 +400,55 @@ $g(A) = f(A)h(A) + r(A) \Rightarrow 0 = 0 \times h(A) + r(A) \Rightarrow r(A) = 
 своим характеристическим многочленом. \\ \\
 % Решение 20 задачи
 \textbf{\underline{Решение:}} \\
+Пусть $A \in \mathbb{P}^{n \times n}$ - квадратная матрица порядка $n$ с элементами из поля $\mathbb{P}$ и 
+$\lambda_1, ... , \lambda_n$ - собственные значения $A$. \\ \\
+Знаем, что $A = S^{-1}TS$, где 
+$T = 
+\begin{pmatrix}
+    \lambda_1 & \cdots & \cdots \\
+    \vdots & \ddots & \vdots \\
+    0 & \cdots & \lambda_n
+\end{pmatrix}
+ \Rightarrow A^n = S^{-1}T^nS \Rightarrow \forall f(x): f(A) = S^{-1}f(T)S$ \\ \\
+ Пусть $f(\lambda)$ - характеристический многочлен матрицы $A$. Тогда $$f(\lambda) = 
+ (\lambda_1 - \lambda)...(\lambda_n - \lambda) \Rightarrow f(T) = 
+ (\lambda_1 I - T)...(\lambda_n I - T)$$\\
+ Обозначим $M_i = \lambda_i I - T$ и заметим, что 
+ $M_i = 
+ \begin{pmatrix}
+    \times & \cdots & \cdots & \cdots & \times \\
+     & \ddots & \cdots & \cdots & \vdots \\
+     &  & 0 & \cdots & \times \\
+     &  &  & \ddots & \vdots \\
+     &  &  &  & \times
+ \end{pmatrix}
+ $ - верхнетреугольная матрица с нулем в позиции $(i, i)$. \\
+Обычным умножением матриц проверяется, что $f(T) = M_1 \times M_2 \times ... \times M_n = 0$, так как 
+$M_1 \times M_2 = 
+\begin{pmatrix}
+    0 & \cdots & \cdots & \times \\
+     & \ddots & \cdots & \vdots \\
+     &  & \ddots & \vdots \\
+     &  &  & \times
+\end{pmatrix} \times
+\begin{pmatrix}
+    \times & \cdots & \cdots & \times \\
+     & 0 & \cdots & \times \\
+     &  & \ddots & \vdots \\
+     &  &  & \times
+ \end{pmatrix} = 
+ \begin{pmatrix}
+    0 & 0 & \cdots & \times \\
+     & 0 & \cdots & \times \\
+     &  & \ddots & \vdots \\
+     &  &  & \times
+ \end{pmatrix}
+ $, $M_1 \times ... \times M_k$ - аналогично будет верхнетреугольной матрицей с нулевой подматрицей $k \times k \Rightarrow
+f(A) = S^{-1}0S = 0$ \\     
+Если какие-то из собственных значений не принадлежат $\mathbb{P}$, то расширим поле $\mathbb{P}$
+до поля разложения характеристического многочлена матрицы $A$ и рассмотрим ее как матрицу над этим, более широким, полем. \\
+$\blacksquare$ \\ \\ \\
+
 
 
 % 21 задача
@@ -386,6 +457,48 @@ $g(A) = f(A)h(A) + r(A) \Rightarrow 0 = 0 \times h(A) + r(A) \Rightarrow r(A) = 
 \noindent Докажите, что любой приведенный многочлен степени выше первой является характеристическим многочленом некоторой матрицы. \\ \\
 % Решение 21 задачи
 \textbf{\underline{Решение:}} \\
+Пусть наш приведенный многочлен имеет вид $f(\lambda) = \lambda_n + a_{n - 1} \lambda^{n - 1} + ... + a_1 \lambda + a_0 \in 
+\mathbb{P}[x]$ \\
+Рассмотрим матрицу 
+$A_f = 
+\begin{pmatrix}
+    0 & 0 & 0 & \cdots & 0 & -a_0 \\
+    1 & 0 & 0 & \cdots & 0 & -a_1 \\
+    0 & 1 & 0 & \cdots & 0 & -a_2 \\  
+    \cdots & \cdots & \cdots & \cdots & \cdots & \cdots \\
+    0 & 0 & 0 & \cdots & 0 & -a_{n - 2} \\  
+    0 & 0 & 0 & \cdots & 1 & -a_{n - 1}
+\end{pmatrix}
+\in \mathbb{P}^{n \times n}$ - матрица Фробениуса для многочлена $f$. \\ \\
+Посчитаем характеристический многочлен $A_f$: \\
+$|A_f - \lambda I| = 
+\begin{vmatrix}
+    -\lambda & 0 & 0 & \cdots & 0 & -a_0 \\
+    1 & -\lambda & 0 & \cdots & 0 & -a_1 \\
+    0 & 1 & -\lambda & \cdots & 0 & -a_2 \\  
+    \cdots & \cdots & \cdots & \cdots & \cdots & \cdots \\
+    0 & 0 & 0 & \cdots & -\lambda & -a_{n - 2} \\  
+    0 & 0 & 0 & \cdots & 1 & -a_{n - 1} - \lambda
+\end{vmatrix}
+ =$ (прибавим к 1 строке $i$ строку, умноженную на $\lambda^{i - 1}$  $\forall i = 2, ... , n$) $= 
+ \begin{vmatrix}
+    0 & 0 & 0 & \cdots & 0 & -a_0 - a_1 \lambda - ... - a_{n - 1} \lambda^{n - 1} - \lambda^n \\
+    1 & -\lambda & 0 & \cdots & 0 & -a_1 \\
+    0 & 1 & -\lambda & \cdots & 0 & -a_2 \\  
+    \cdots & \cdots & \cdots & \cdots & \cdots & \cdots \\
+    0 & 0 & 0 & \cdots & -\lambda & -a_{n - 2} \\  
+    0 & 0 & 0 & \cdots & 1 & -a_{n - 1} - \lambda
+\end{vmatrix}
+ =$ (теорема Лапласа по 1 строке) $= 
+ (-1)^{n + 1}(-a_0 - a_1 \lambda - ... - a_{n - 1} \lambda^{n - 1} - \lambda^n)
+ \begin{vmatrix}
+    1 & -\lambda & \cdots & 0 \\
+     & \ddots & \ddots & \vdots \\
+     & & \ddots & -\lambda \\
+     & & & 1
+ \end{vmatrix}
+ = (-1)^{n + 2}f(\lambda) = (-1)^nf(\lambda)$ \\ $\blacksquare$ \\ \\ \\ 
+
 
 
 % 22 задача
