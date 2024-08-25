@@ -512,6 +512,53 @@ $k \neq l$, а число $\gamma$ может быть произвольным 
 верхнему почти треугольному виду. \\ \\
 % Решение 22 задачи
 \textbf{\underline{Решение:}} \\
+Пусть наша исходная матрица имеет вид 
+$A = 
+\begin{pmatrix}
+    a_{11} & \cdots & a_{1n} \\
+    \vdots & \ddots & \vdots \\
+    a_{n1} & \cdots & a_{nn} 
+\end{pmatrix}
+$ \\ \\
+На первом шаге хотим занулить все элементы на позициях $(i, 1)$ $\forall i \geq 3$. \\ \\
+Если $a_{i1} \neq 0$ для некоторого $j \geq 3$, то преобразованием подобия перейдем к матрице
+$$P_1AP_1^{-1} = 
+\begin{pmatrix}
+    a_{11} & \cdots & \cdots & \cdots & \cdots & a_{1n} \\
+    a_{j1} & \ddots & \cdots & \cdots & \cdots & a_{jn} \\
+    \vdots & \cdots & \ddots & \cdots & \cdots & \vdots \\
+    a_{21} & \cdots & \cdots & \ddots & \cdots & a_{2n} \\
+    \vdots & \cdots & \cdots & \cdots & \ddots & \vdots \\
+    a_{n1} & \cdots & \cdots & \cdots & \cdots & a_{nn} 
+\end{pmatrix}
+$$ - здесь матрица $P$ - матрица перестановки, меняющая местами строки с номерами $2, i \Rightarrow P^{-1}$ 
+поменяет местами столбцы с номерами $2, i$. \\
+Теперь из каждой строки с номером $i \geq 3$ вычтем 2-ю строку, домноженную на $\frac{a_{i1}}{a_{j1}} \Rightarrow$ 
+получим матрицу 
+$$P_{n-1}...P_1AP_1^{-1}...P_{n - 1}^{-1} = 
+\begin{pmatrix}
+    a_{11} & \cdots & \cdots & \cdots & \times \\
+    a_{j1} & \ddots & \cdots & \cdots &  \times \\
+    0 & \cdots & \ddots & \cdots & \times \\
+    \vdots & \cdots & \cdots & \ddots & \vdots \\
+    0 & \cdots & \cdots & \cdots & \times
+\end{pmatrix}
+$$ - для того, чтобы произошло именно преобразование подобия, мы домножали справа на $P_i^{-1} \Rightarrow$ 
+к $i$ столбцу прибавляли второй с тем же множителем (но это никак не повлияло на зануление первого столбца). \\
+Таким образом за $n - 1$ преобразований подобия перешли к матрице, указанной выше. Теперь рассмотрим у этой матрицы подматрицу 
+размеров $(n - 1) \times (n - 1)$, расположенную в правом нижнем углу. \\
+К ней можно применить предположение индукции (индукция по порядку матрицы, база - $n = 1$ - уже является верхней почти треугольной). 
+Т.е приведем исходную матрицу к верхней почти треугольной за $O((n - 1)^2) + (n - 1) = O(n^2)$ преобразований подобия. \\
+Для подматрицы нужные нам матрицы преобразований будут иметь вид
+$$P = 
+\begin{pmatrix}
+    1 & 0 & \cdots & 0 \\
+    0 & \times & \cdots & \times \\
+    \vdots & \cdots & \ddots & \vdots \\
+    0 & \times & \cdots & \times
+\end{pmatrix}
+$$ \\
+$\blacksquare$ \\ \\ \\
 
 
 % 23 задача
@@ -579,6 +626,47 @@ $ (так как $Ax_i = \lambda_i x_i$) $\Rightarrow XAX^{-1} =
      & & \lambda_n
 \end{pmatrix}$ - диагональная матрица $\Rightarrow$ $A$ - диагонализуема. \\ $\blacksquare$ \\ \\ \\
 
+
+% 26 задача
+\subsection*{Задача 26:}
+\addcontentsline{toc}{subsection}{Задача 26:}
+\noindent Докажите, что для нильпотентности линейного оператора необходимо и достаточно, чтобы он был квазискалярным с единственным собственным значением, равным нулю. \\ \\
+% Решение 26 задачи
+\textbf{\underline{Решение:}} \\
+1. $\Rightarrow$: \\
+Пусть $A: V \rightarrow V$ - нильпотентный линейный оператор, то есть $\exists m$: $A^m = 0$ \\
+Тогда $\forall$ собственного вектора $x$: $Ax = \lambda x \Rightarrow A^m x = \lambda^m x \Rightarrow
+\lambda^m x = 0 \Rightarrow \lambda = 0 \Rightarrow A$ - квазискалярный с единственным собственным значением $\lambda = 0$ \\
+2. $\Leftarrow$: \\
+Пусть $A: V \rightarrow V$ - квазискалярный линейный оператор с собственным значением $\lambda = 0$ \\
+Тогда его характеристический многочлен имеет вид $f(\lambda) = (-\lambda)^n$ \\
+По теореме Кэли-Гамильтона $f(A) = 0 \Rightarrow (-1)^n A^n = 0 \Rightarrow A^n = 0 \Rightarrow A$ - нильпотентный. \\
+$\blacksquare$ \\ \\ \\
+
+
+% 27 задача
+\subsection*{Задача 27:}
+\addcontentsline{toc}{subsection}{Задача 27:}
+\noindent Докажите, что линейный оператор $A$ является квазискалярным с единственным собственным
+значением $\lambda$ тогда и только тогда, когда сдвинутый оператор $A - \lambda I$ является нильпотентным. \\ \\
+% Решение 27 задачи
+\textbf{\underline{Решение:}} \\
+1. $\Rightarrow$: \\
+Пусть $A: V \rightarrow V$ - квазискалярный линейный оператор с собственным значением $\lambda$ \\
+Тогда сдвинутый оператор $A - \lambda I$ - нильпотентный. Докажем: \\
+$\forall$ собственного вектора оператора $A$ имеем: $(A - \lambda I)x = Ax - \lambda x = 0 \Rightarrow x$ - 
+собственный для сдвинутого оператора с собственным значением  $\lambda = 0$ \\
+Если $\exists x: (A - \lambda I)x = \alpha x, \alpha \neq 0$, то $Ax = (\lambda + \alpha)x \Rightarrow A$ - не квазискалярный
+$\Rightarrow$ противоречение $\Rightarrow A - \lambda I$ - квазискалярный с собственным значением $\lambda = 0 \Rightarrow$ 
+он нильпотентный (по предыдущей задаче). \\
+2. $\Leftarrow$: \\
+$A - \lambda I$ - нильпотентный $\Rightarrow$ он квазискалярный с единственным собственным значением $\lambda = 0$ 
+(по предыдущей задаче). \\
+Тогда $\forall$ собственного вектора оператора $A - \lambda I$ имеем: $(A - \lambda I)x = Ax - \lambda x = 0 \Rightarrow Ax = \lambda x \Rightarrow x$ - 
+собственный для $A$ с собственным значением  $\lambda$ \\
+Если $\exists x: Ax = \alpha x, \alpha \neq \lambda$, то $(A - \lambda I)x = (\alpha - \lambda)x \Rightarrow A -\lambda I$ - не квазискалярный
+$\Rightarrow$ противоречение $\Rightarrow A$ - квазискалярный с собственным значением $\lambda$ \\
+$\blacksquare$ \\ \\ \\
 
 \newpage
 \section*{Расстояния, нормы, скалярные произведения, полиэдры.}
