@@ -1114,6 +1114,933 @@ $\blacksquare$ \\ \\ \\
 \end{enumerate}
 $\blacksquare$ \\ \\ \\
 
+% 3 раздел - нормальные матрицы
+\newpage
+\section*{Нормальные матрицы}
+\addcontentsline{toc}{section}{Нормальные матрицы}
+
+% 1 задача
+\subsection*{Задача 1:}
+\addcontentsline{toc}{subsection}{Задача 1:}
+\noindent Докажите, что для всякой комплексной $n \times n$ матрицы $A$ с собственными значениямии $\lambda_1$, $\ldots$, $\lambda_n$ существует унитарная $n \times n$ матрица $Q$ такая, что матрица $Q^*AQ$ является верхней треугольной с элементами главной диагонали, равными $\lambda_1$, $\ldots$, $\lambda_n$.\\ \\
+% Решение 1 задачи
+\textbf{\underline{Решение:}} \\
+Знаем, что любая матрица подобна верхней треугольной, то есть $\exists P$ - невырожденная, $D$ - верхняя треугольная: $D = P^{-1}AP$. Кроме того, $P = QR$ - QR-разложение.
+$$\Rightarrow D = R^{-1}Q^*AQR \Rightarrow Q^*AQ = RDR^{-1}$$
+Произведение верхних треугольных и обратная к верхней треугольной - верхняя треугольная матрица, поэтому $RDR^{-1}$ - верхняя треугольная. $\blacksquare$ \\ \\ \\
+
+% 2 задача
+\subsection*{Задача 2:}
+\addcontentsline{toc}{subsection}{Задача 2:}
+\noindent Докажите, что матрица является нормальной в том и только в том случае, когда она унитарно подобна диагональной матрице.\\ \\
+% Решение 2 задачи
+\textbf{\underline{Решение:}} \\
+Рассмотрим матрицу $A$. Согласно прошлой задаче: $Q^*AQ = B$ - верхняя треугольная матрица.
+$$ A^*A = AA^* \Leftrightarrow QB^*Q^*QBQ^* = QBQ^*QB^*Q^* \Leftrightarrow  QB^*BQ^* = QBB^*Q^* \Leftrightarrow B^*B = BB^*$$
+(В последнем переходе домножили слева на $Q^*$ и справа на $Q$).\\\\
+Таким образом $A$ - нормальная $\Leftrightarrow$ $B$ - нормальная. Рассмотрим $B^*B$ и $BB^*$:
+$$
+B^*B = 
+\begin{pmatrix}
+    \overline{b_{11}} & 0 & \ldots & \ldots & 0 \\
+    \overline{b_{12}} & \overline{b_{12}} & 0 & \ldots & 0 \\
+    \vdots & \vdots &\vdots & 0 & \vdots \\
+    \overline{b_{1n}}, & \ldots & \ldots & \ldots & \overline{b_{nn}}
+\end{pmatrix}
+\begin{pmatrix}
+    b_{11} & b_{12} & \ldots & \ldots & b_{1n} \\
+    0 & b_{22} & \ldots & \ldots & b_{2n} \\
+    \vdots & \vdots &\vdots & \vdots & \vdots \\
+    0, & \ldots & \ldots & 0 & b_{nn}
+\end{pmatrix}
+$$
+$$
+BB^* =
+\begin{pmatrix}
+    b_{11} & b_{12} & \ldots & \ldots & b_{1n} \\
+    0 & b_{22} & \ldots & \ldots & b_{2n} \\
+    \vdots & \vdots &\vdots & \vdots & \vdots \\
+    0, & \ldots & \ldots & 0 & b_{nn}
+\end{pmatrix}
+\begin{pmatrix}
+    \overline{b_{11}} & 0 & \ldots & \ldots & 0 \\
+    \overline{b_{12}} & \overline{b_{12}} & 0 & \ldots & 0 \\
+    \vdots & \vdots &\vdots & 0 & \vdots \\
+    \overline{b_{1n}}, & \ldots & \ldots & \ldots & \overline{b_{nn}}
+\end{pmatrix}
+$$
+$$ (B^*B)_{11} = (BB^*)_{11} \Leftrightarrow |b_{11}|^2 = |b_{11}|^2 + |b_{12}|^2 + \ldots + |b_{1n}|^2 \Leftrightarrow |b_{12}| = \ldots = |b_{1n}| = 0 $$
+Дальше по индукции получаем, что $|b_{ij}| = 0, \, i \neq j$. То есть $A$ - нормальная $\Leftrightarrow$ $B$ - диагональная $\blacksquare$. \\ \\ \\
+
+% 3 задача
+\subsection*{Задача 3:}
+\addcontentsline{toc}{subsection}{Задача 3:}
+\noindent Докажите, что если матрица нормальна, то её спектральный радиус равен её спектральной норме. Верно ли обратное?\\ \\
+% Решение 3 задачи
+\textbf{\underline{Решение:}} \\
+(\textbf{Спойлер: обратное неверно}) \\
+\begin{enumerate}
+\item Пусть $A$ - нормальная $\Rightarrow$ унитарно подобна диагональной $\Rightarrow A = U^*DU$.
+$$  \Vert A \Vert_2 = \underset{\Vert x\Vert_2 = 1}{sup}\Vert Ax\Vert_2 = 
+\underset{\Vert x\Vert_2 = 1}{sup}\Vert U^*DUx\Vert_2 = (\Vert \cdot \Vert_2 \footnotesize\text{ унитарно инвариантна}) = \underset{\Vert x\Vert_2 = 1}{sup}\Vert DUx\Vert_2$$
+При домножении на унитарную матрицу норма вектора не меняется, то есть $\Vert x\Vert_2 = \Vert Ux \Vert_2$, поэтому делаем замену $y := Ux$, тогда $\underset{\Vert x\Vert_2 = 1}{sup}\Vert DUx\Vert_2 = \underset{\Vert y\Vert_2 = 1}{sup}\Vert Dy\Vert_2$
+$$
+\Vert Dy\Vert_2 = \sqrt{|\lambda_1 y_1|^2 + \ldots + |\lambda_n y_n|^2} \leq \sqrt{|\lambda_1 y_1|^2 + \ldots + |\lambda_1 y_n|^2} = |\lambda_1|\Vert y \Vert_2 = |\lambda_1| = \rho(A) $$
+(Считаем, что $|\lambda_1| \geq |\lambda_2| \geq \ldots \geq |\lambda_n|$) \\
+Причем при $y = \begin{pmatrix} 1 & 0 & \ldots & 0 \end{pmatrix}^T$ достигается равенство, поэтому $\Vert A \Vert_2 = \rho(A)$ (т.к. это супремум) \\
+\item Докажем, что обратное неверно. Пусть
+$A = \left(\begin{smallmatrix} 
+    1 & 0 & 0 \\
+    0 & 0 & 1 \\
+    0 & 0 & 0 \\
+\end{smallmatrix} \right) \Rightarrow
+A^* = \left(\begin{smallmatrix} 
+    1 & 0 & 0 \\
+    0 & 0 & 0 \\
+    0 & 1 & 0 \\
+\end{smallmatrix} \right) $
+$$ 
+AA^* = \left(\begin{smallmatrix} 
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 0 \\
+\end{smallmatrix} \right) \neq
+\left(\begin{smallmatrix} 
+    1 & 0 & 0 \\
+    0 & 0 & 0 \\
+    0 & 0 & 1 \\
+\end{smallmatrix} \right) = A^*A
+$$
+То есть $A$ - не нормальная, но при этом: 
+$$ \sigma_1(A) = \rho(A) = 1 \Rightarrow \Vert A \Vert_2 = \sigma_1(A) = \rho(A) \, \blacksquare$$ \\
+\end{enumerate}
+
+
+% 4 задача
+\subsection*{Задача 4:}
+\addcontentsline{toc}{subsection}{Задача 4:}
+\noindent Докажите, что нормальная матрица является унитарной $\Leftrightarrow$ все её собственные значения по модулю равны 1.\\ \\
+% Решение 4 задачи
+\textbf{\underline{Решение:}} \\
+$\boldsymbol{\Rightarrow}$ Если $A$ - нормальная и унитарная, то $A = Q\Lambda Q^*$ - унитарно подобна диагональной, и $AA^* = I$ - унитарность. 
+$$ AA^* =  Q\Lambda Q^* Q \Lambda^* Q^* = I \Rightarrow Q \Lambda \Lambda^* Q^* = I \Rightarrow \Lambda \Lambda^* = Q^*IQ = I $$
+$$ \Lambda \Lambda^* = I =
+\begin{pmatrix}
+    |\lambda_1|^2 & \ldots & 0 \\
+    \vdots & \ddots & \vdots \\
+    0 & \ldots & |\lambda_n|^2 \\
+\end{pmatrix} = 
+\begin{pmatrix}
+    1 & \ldots & 0 \\
+    \vdots & \ddots & \vdots \\
+    0 & \ldots & 1 \\
+\end{pmatrix} \Rightarrow |\lambda_i| = 1. $$
+$\boldsymbol{\Leftarrow}$ $A = Q\Lambda Q^*$ и $|\lambda_i| = 1$, тогда:
+$$ AA^* = Q\Lambda\Lambda^*Q^* = Q
+\begin{pmatrix}
+    |\lambda_1|^2 & \ldots & 0 \\
+    \vdots & \ddots & \vdots \\
+    0 & \ldots & |\lambda_n|^2 \\
+\end{pmatrix} Q^* = Q
+\begin{pmatrix}
+    1 & \ldots & 0 \\
+    \vdots & \ddots & \vdots \\
+    0 & \ldots & 1 \\
+\end{pmatrix} Q^* = QIQ^* = I \, \blacksquare $$ \\
+
+% 5 задача
+\subsection*{Задача 5:}
+\addcontentsline{toc}{subsection}{Задача 5:}
+\noindent Докажите, что нормальная матрица является эрмитовой $\Leftrightarrow$ все её собственные значения вещественны.\\ \\
+% Решение 5 задачи
+\textbf{\underline{Решение:}} \\
+Пусть $A$ - нормальная $\Leftrightarrow A = Q\Lambda Q^*$ - унитарно подобна диагональной.
+$$ A = A^* \Leftrightarrow Q\Lambda Q^* = Q\Lambda^* Q^* \Leftrightarrow \Lambda = \Lambda^* \Leftrightarrow$$ 
+$$\begin{pmatrix}
+    \lambda_1 & \ldots & 0 \\
+    \vdots & \ddots & \vdots \\
+    0 & \ldots & \lambda_n \\
+\end{pmatrix} = 
+\begin{pmatrix}
+    \overline{\lambda_1} & \ldots & 0 \\
+    \vdots & \ddots & \vdots \\
+    0 & \ldots & \overline{\lambda_n} \\
+\end{pmatrix} \Rightarrow \lambda_i = \overline{\lambda_i} \Leftrightarrow \lambda_i \in \mathbb{R} \, \blacksquare$$
+
+
+% 6 задача
+\subsection*{Задача 6:}
+\addcontentsline{toc}{subsection}{Задача 6:}
+\noindent Унитарная матрица $Q = \left[ \begin{smallmatrix} Q_{11} & Q_{12} \\ Q_{21} & Q_{22} \end{smallmatrix}\right]$ порядка $2n$ разбита на блоки порядка $n$. Докажите, что $|detQ_{12}| = |detQ_{21}|$. \\ \\
+% Решение 6 задачи
+\textbf{\underline{Решение:}} \\
+$$ Q = \begin{pmatrix} Q_{11} & Q_{12} \\ Q_{21} & Q_{22} \end{pmatrix} \Rightarrow Q^* = \begin{pmatrix} Q_{11}^* & Q_{21}^* \\ Q_{12}^* & Q_{22}^* \end{pmatrix} $$
+$Q$ - унитарная матрица.
+\begin{enumerate}
+\item Из $QQ^* = I$ имеем:
+$$Q_{11}Q_{11}^* + Q_{12}Q_{12}^* = I$$
+$Q_{12}Q_{12}^* = P\Lambda P^{-1}$ - подобна треугольной матрице с собственными значениями на диагонали. Тогда $Q_{11}Q_{11}^* = I - P\Lambda P^{-1} = P(I - \Lambda)P^{-1}$. 
+Характеристический многочлен является инвариантом подобия, поэтому собственные значениия матриц $Q_{11}Q_{11}^*$ и $I - \Lambda$ совпадают.
+\item Из $Q^*Q = I$ имеем:
+$$Q_{11}^*Q_{11} + Q_{21}^*Q_{21} = I$$
+По аналогичным рассуждениям получим, что собственные значения матриц $Q_{11}^*Q_{11}$ и $I - M$ (где $RMR^{-1} = Q_{21}^*Q_{21}$) также совпадают. 
+\end{enumerate}
+Собственные значения матриц $Q_{11}^*Q_{11}$ и $Q_{11}Q_{11}^*$ совпадают, поэтому совпадают собственные значения матриц $I - M$ и $I - \Lambda$.
+$\lambda_i(I - \Lambda) = 1 - \lambda_i(\Lambda)$, $\lambda_i(I - M) = 1 - \lambda_i(M) \Rightarrow$ совпадают собственные значения матриц $\Lambda$ и $M \Rightarrow$ совпадают с.з. $Q_{21}^*Q_{21}$ и $Q_{12}Q_{12}^*$.
+Определитель матрицы есть произведение её собственных значений $\Rightarrow |Q_{12}Q_{12}^*| = |Q_{21}^*Q_{21}|$
+$$ det(Q_{12}) \overline{det(Q_{12})} = \overline{det(Q_{21})} det(Q_{21}) \Rightarrow |det(Q_{12})|^2 = |det(Q_{21})|^2 \Rightarrow |det(Q_{12})| = |det(Q_{21})| \, \blacksquare$$ \\
+
+% 7 задача
+\subsection*{Задача 7:}
+\addcontentsline{toc}{subsection}{Задача 7:}
+\noindent Известно, что $A^2 = A$ и $kerA \perp imA$ (ортогональность относительно единственного скалярного произведения). Докажите, что $A = A^*$. \\ \\
+% Решение 7 задачи
+\textbf{\underline{Решение:}} \\
+Пусть $A: V \rightarrow V$. $A^2 = A \Rightarrow A$ - проектор, $V = imA + kerA$ - прямая сумма образа и ядра. Пусть $x_1, \ldots, x_k$ - базис $ImA$, $x_{k+1}, \ldots, x_n$ - базис $kerA$ ($dimV = n$).
+Тогда $x_1, \ldots, x_n$ - базис $V$. $\forall y, z \in V$:
+$$y = \alpha_1x_1 + \ldots + \alpha_nx_n$$
+$$z = \beta_1x_1 + \ldots + \beta_nx_n$$
+$$(Ay, z) = (A\sum_{i=1}^n\alpha_ix_i, \sum_{i=1}^n\beta_ix_i) = (\sum_{i=1}^k\alpha_ix_i, \sum_{i=1}^n\beta_ix_i) = \sum_{i=1}^k\alpha_i\overline{\beta_i}(x_i, x_i)$$
+В предпоследнем переходе мы воспользовались тем, что $x_{k+1}, \ldots, x_n \in kerA \Rightarrow Ax_i = 0, i = \overline{k+1, n}$. В последнем переходе пользуемся условием $kerA \perp imA \Rightarrow (x_i, x_j) = 0$ при $1 \leq i \leq k, k + 1 \leq j \leq n$.
+Аналогично получим, что:
+$$(y, Az) = \sum_{i=1}^k\alpha_i\overline{\beta_i}(x_i, x_i)$$
+$$\text{То есть } \forall y, z \in V: (Ay, z) = (y, Az) \Rightarrow A = A^* \, \blacksquare$$ \\
+
+% 8 задача
+\subsection*{Задача 8:}
+\addcontentsline{toc}{subsection}{\color{red}Задача 8:}
+\noindent Дано подпространство $L \subset \mathbb{C}^n$. Докажите, что среди всеех матриц $A$ таких, что $imA = L$ и $A^2 = A$ наименьшее значение 2-нормы достигается для некоторой эрмитовой и притом только одной матрицы $A$. \\ \\
+% Решение 8 задачи
+\textbf{\underline{Решение:}} \\
+Выберем некоторый ортонормированный базис $L: q_1, \ldots, q_k, k = dimL$. Дополним его до ортонормированного базиса $\mathbb{C}^n: q_1, \ldots, q_k, \ldots, q_n$.
+Тогда $Q = [q_1, \ldots, q_n]$ - матрица перехода $q \to e$ - в канонический базис $e$.
+Рассмотрим матрицу $A$ как матрицу оператора $B$ в базисе $e$. То есть $B: x \to Ax$. \\
+Перейдем в базис $q: [B]_{qq} = Q^*AQ$. $A^2 = A \Rightarrow B^2 = B \Rightarrow B$ - оператор проектирования. Тогда
+()
+$$[B]_{qq} = 
+%/begin{pmatrix}
+%\begin{matrix}
+ %   1 & \ldots & . \\
+  %  \vdots & \ddots & \vdots \\
+   % . & \ldots & 1 \\ 
+%\end{matrix} & A \\
+%\Theta & \Theta \\
+%/end{pmatrix}
+$$
+% 9 задача
+\subsection*{Задача 9:}
+\addcontentsline{toc}{subsection}{Задача 9:}
+\noindent Докажите, что для любой эрмитовой матрицы $H$ матрица $Q = (I - \textbf{i}H)^{-1}(I + \textbf{i}H)$ является унитарной. Любую ли унитарную матрицу можно представить таким образом?\\ \\
+% Решение 9 задачи
+\textbf{\underline{Решение:}} \\
+Проверка унитарности $Q$ предоставляется читателю в качестве упражнения (достаточно проверить определение унитарной матрицы). \\
+Не любую унитарную матрицу можно представить в таком виде. Положим $Q = -I$ - очевидно, унитарная матрица. Пусть $\exists H = H^*$: $Q = (I - \textbf{i}H)^{-1}(I + \textbf{i}H)$
+$$-I = (I - \textbf{i}H)^{-1}(I + \textbf{i}H) \Rightarrow -I + \textbf{i}H = I + \textbf{i}H \Rightarrow I = \Theta \textbf{?!} \, \blacksquare$$ \\
+
+% 10 задача
+\subsection*{Задача 10:}
+\addcontentsline{toc}{subsection}{Задача 10:}
+\noindent Докажите, что для любой комплексной квадратной матрицы эрмитово разложение существует и единственно.\\ \\
+% Решение 10 задачи
+\textbf{\underline{Решение:}} \\
+$A = H + iK \Leftrightarrow A^* = H - iK \Leftrightarrow H = \frac{A + A^*}{2}, K = \frac{A - A^*}{2i}$ \blacksquare \\ \\ \\
+
+% 11 задача
+\subsection*{Задача 11:}
+\addcontentsline{toc}{subsection}{Задача 11:}
+\noindent Докажите, что если эрмитова квадратичная форма $f(x) = x^*Ax$ принимает только вещественные значения при всех $x \in \mathbb{C}^n$, то матрица $A$ является эрмитовой.\\ \\
+% Решение 11 задачи
+\textbf{\underline{Решение:}} \\
+Воспользуемся эрмитовым разложением (прошлая задача). $A = H_1 + iH_2$
+$$x^*Ax = (x^*H_1x) + i(x^*H_2x)$$
+$H_1$ - эрмитова, поэтому $(x^*H_1x)^* = x^*H_1x$ - вещественное число. Аналогично $x^*H_2x \in \mathbb{R}$. Таким образом $\forall x \in \mathbb{C}^n: \: Im(x^*Ax) = x^*H_2x = 0$. Последнее равенство следует из условия вещественности $x^*Ax$. \\
+$H_2$ - эрмитова, то есть в том числе нормальная $\Rightarrow \, \exists$ базис из собственных векторов: $x_1, \ldots, x_n$, при этом:
+$$x_i^*H_2x_i = x_i^*\lambda_i x_i = \lambda_i x_i^*x_i = 0$$
+$$x_i \neq 0 \Rightarrow \lambda_i = 0, \: i = \overline{1,n}$$
+Таким образом, нормальная матрица $H_2$ имеет только нулевые собственные значения. Нормальная матрица подобна диагональной, поэтому $H_2 \sim \Theta \Rightarrow H_2 \equiv \Theta$. То есть $A = H_1$ - эрмитова матрица. \blacksquare \\ \\ \\
+
+% 12 задача
+\subsection*{Задача 12:}
+\addcontentsline{toc}{subsection}{Задача 12:}
+\noindent Докажите, что для неотрицательной (положительной) определенности комплексной квадратной матрицы необходимо и достаточно, чтобы она была эрмитовой матрицей с неотрицательными (положительными) собственными значениями.\\ \\
+% Решение 12 задачи
+\textbf{\underline{Решение:}} \\
+Докажем в случае неотрицательной определенности (второй случай аналогичен). \\
+$\boldsymbol{\Rightarrow}$ Пусть $A \geq 0$, т.е. $x^*Ax \geq 0 \, \forall x$. По прошлой задаче $A = A^*$.
+$$Ax = \lambda x \Rightarrow x^*Ax = \lambda x^*x \geq 0 \Rightarrow \lambda \geq 0 \,(x \neq 0)$$
+$\boldsymbol{\Leftarrow}$ $A = A^*$, $\lambda_i \geq 0$. $A$ - нормальная $\Rightarrow \exists$ ортонормированный базис из собственных векторов $v_1, \ldots, v_n$.
+Пусть $x = \alpha_1v_1 + \ldots + \alpha_nv_n$, тогда
+$$x^*Ax = (Ax, x) = (A\sum_{i=1}^n\alpha_iv_i, \sum_{i=1}^n\alpha_iv_i) = (\sum_{i=1}^n\alpha_i\lambda_iv_i, \sum_{i=1}^n\alpha_iv_i) = $$
+$$ = \sum_{i=1}^n|\alpha_i|^2\lambda_i(v_i, v_i) = \sum_{i=1}^n|\alpha_i|^2\lambda_i \geq 0$$
+Здесь мы пользуемся ортонормированностью базиса $\{x_i\}$: $(x_i, x_j) = \sigma_{ij}$. \blacksquare \\ \\ \\.
+
+% 13 задача
+\subsection*{Задача 13:}
+\addcontentsline{toc}{subsection}{Задача 13:}
+\noindent Пусть $A = H + iK$ - эрмитово разложение матрицы $A$. Докажите, что вещественные части собственных значений матрицы $A$ заключены между минимальным и максимальным собственными значениями эрмитовой матрицы $H$, а мнимые части
+между минимальным и максимальным собственными значениями эрмитовой матрицы $K$.\\ \\
+% Решение 13 задачи
+\textbf{\underline{Решение:}} \\
+Пусть $\lambda = a + ib$ - собственное значение матрицы $A$. $Ax = \lambda x \Rightarrow$
+$$(Ax, x) = ((a + ib)x, x) = a(x, x) + ib(x, x)$$
+$$(Ax, x) = ((H + iK)x, x) = (Hx, x) + i(Kx, x)$$
+Комплексные числа равны $\Leftrightarrow$ равны их вещественные и мнимые части. Поэтому
+\begin{equation*}
+\left\{ \begin{aligned}
+a(x, x) = (Hx, x) \\
+b(x, x) = (Kx, x)
+\end{aligned} \right. 
+\end{equation*}
+$H, K$ - эрмитовы (в том числе нормальные) $\Rightarrow \exists$ ортонормированный базис из собственных векторов.
+$$e_1, \ldots, e_n - \text{базис из с.в } H$$
+$$f_1, \ldots, f_n - \text{базис из с.в } K$$
+Пусть $x = \sum_{i=1}^n\alpha_ie_i = \sum_{i=1}^n\beta_if_i \Rightarrow$
+\begin{equation*}
+\left\{ \begin{aligned}
+a(\sum_{i=1}^n\alpha_ie_i , \sum_{i=1}^n\alpha_ie_i ) = (H\sum_{i=1}^n\alpha_ie_i , \sum_{i=1}^n\alpha_ie_i ) \\
+b(\sum_{i=1}^n\beta_if_i, \sum_{i=1}^n\beta_if_i) = (K\sum_{i=1}^n\beta_if_i, \sum_{i=1}^n\beta_if_i)
+\end{aligned} \right. 
+\end{equation*}
+
+$$\Rightarrow a\sum_{i=1}^n|\alpha_i|^2 = \sum_{i=1}^n\lambda_{H_i}|\alpha_i|^2 \leq  \lambda_{H_{max}}\sum_{i=1}^n|\alpha_i|^2 \Rightarrow a \leq \lambda_{H_{max}}$$
+Аналогично получим, что $b \leq \lambda_{K_{max}}$. Оценка для минимальных собственных значений получается аналогично и предоставляется читателю в качестве упражнения. \blacksquare \\ \\ \\
+
+% 14 задача
+\subsection*{Задача 14:}
+\addcontentsline{toc}{subsection}{Задача 14:}
+\noindent Даны комплексные матрицы $A$ и $B$ одного порядка, при этом матрица $B$ невырожденная. Докажите, что из неотрицательной определенности матрицы $B^*B - A^*A$ вытекает, что спектральный радиус матрицы $B^{-1}A$ не больше 1.\\ \\
+% Решение 14 задачи
+\textbf{\underline{Решение:}} \\
+Пусть $\rho(B^{-1}A) > 1 \Rightarrow$
+$$ \exists \lambda > 1: B^{-1}Ax = \lambda x \Rightarrow Ax = \lambda Bx \Rightarrow (Ax, Ax) = |\lambda|^2 (Bx, Bx) $$
+Но $x^*(B^*B - A^*A)x \geq 0$ $\forall x \Rightarrow x^*B^*Bx \geq x^*A^*Ax$ $\forall x$.
+$$ \Rightarrow (Bx, Bx) \geq (Ax, Ax),\, \lambda > 1 \Rightarrow \lambda^2 (Bx, Bx) > (Bx, Bx) \geq (Ax, Ax)$$
+Но по предположению $\lambda^2 (Bx, Bx) = (Ax, Ax)$ \textbf{?!} $\Rightarrow \rho(B^{-1}A) \leq 1$ $\blacksquare$ \\ \\ \\
+
+% 15 задача
+\subsection*{Задача 15:}
+\addcontentsline{toc}{subsection}{Задача 15:}
+\noindent Пусть заданы вещественная положительно определенная матрица $A$ порядка $n$ и вектор $b \in \mathbb{R}^n$. Доказать, что функционал $f(x) = (Ax, x) + (b, x)$ при $x \in \mathbb{R}^n$ ограничен снизу и существует единственная точка $x_0$, в которой
+$f(x_0)$ есть его минимальное значение.\\ \\
+% Решение 15 задачи
+\textbf{\underline{Решение:}} \\
+$A > 0 \Rightarrow$ эрмитова с положительными с.з. $\Rightarrow \exists$ ортонормированный базис из собственных векторов. 
+Пусть $x_1, \ldots, x_n$ - базис, $x = \alpha_1x_1 + \ldots + \alpha_nx_n$, $b = \beta_1x_1 + \ldots + \beta_nx_n \Rightarrow$
+$$(Ax, x) + (b, x) = \sum_{i=1}^{n}\lambda_i|\alpha_i|^2 + \sum_{i=1}^{n}\beta_i\alpha_i = \sum_{i=1}^n(\lambda_i\alpha_i^2 + \beta_i\alpha_i)$$
+Каждое $i$ слагаемое полученной суммы есть квадратный трехчлен относительно $\alpha_i$ с положительным старшим коэффициентом $\lambda_i \Rightarrow$ 
+оно ограниченно снизу и $\exists!\,\alpha_{i_0} = -\frac{\beta_i}{2\lambda_i}$ - точка минимума. \\
+Тогда $f(x)$ ограничена снизу как сумма ограниченных снизу слагаемых и $\exists!\,x_0 = (\alpha_{1_0}, \ldots, \alpha_{n_0})$ - точка минимума $f(x)$. \blacksquare \\ \\ \\
+
+
+% 16 задача
+\subsection*{Задача 16:}
+\addcontentsline{toc}{subsection}{Задача 16:}
+\noindent Матрицы $A$ и $B$ обе эрмитовы, при этом $A$ положительно определенная. Докажите, что собственные значения матриц $AB$ и $BA$ вещественные.\\ \\
+% Решение 16 задачи
+\textbf{\underline{Решение:}} \\
+Характеристические многочлены $AB$ и $BA$ совпадают (т.к. $AB = (BA)^*$) $\Rightarrow$ достаточно рассмотреть только $AB$. 
+\begin{enumerate}
+\item $A > 0 \Rightarrow \exists! \sqrt{A}$, тогда $AB = \sqrt{A}\sqrt{A}B$. Пусть $\sqrt{A} = C$, $\sqrt{A}B = D$.
+\item С.з $CD$ и $DC$ совпадают $\Rightarrow \{\lambda(AB)\} = \{\lambda(\sqrt{A}B\sqrt{A})\}$
+\item $\sqrt{A}B\sqrt{A}$ - эрмитова $\Rightarrow \{\lambda(\sqrt{A}B\sqrt{A})\} \in \mathbb{R} \,\blacksquare$ \\ \\ \\
+\end{enumerate}
+
+% 17 задача
+\subsection*{Задача 17:}
+\addcontentsline{toc}{subsection}{Задача 17:}
+\noindent Докажите, что для любой вещественной нормальной матрицы существует вещественный ортонормированный базис, в котором она является прямой суммой вещественных блоков 
+порядка 1 и вещественных блоков порядка 2 вида $\begin{bmatrix} a & b \\ -b & a\end{bmatrix}$.\\ \\
+% Решение 17 задачи
+\textbf{\underline{Решение:}} \\
+Пусть $A$ - вещественная нормальная матрица $\Rightarrow$ по лемме Шура:
+$A = Q\Lambda Q^* \Rightarrow$ разбивается в прямую сумму блоков размера 1 в базисе из столбцов $Q$. Если с.в. вещественные, то и с.з. тоже - тогда утверждение верно. \\
+Если $\lambda = a + ib$ - собственное значение и $v = x + iy$ - собственный вектор, то
+$$A(x + iy) = Ax + iAy = (a + ib)(x + iy) = ax - by + i(bx + ay) \Rightarrow$$
+$$\Rightarrow A[x, y] = [x, y]\begin{bmatrix} a & b \\ -b & a\end{bmatrix}$$
+Причем $\overline{\lambda} = a - ib$ - собственное значение для $x - iy$:
+$$A(x - iy) = Ax - iAy = ax - by - i(bx + ay) = (a - ib)(x - iy)$$
+Более того, вектора $x - iy$ и $x + iy$ - ортогональны (т.к. они из базиса $Q$):
+$$(x - iy, x + iy) = (x, x) - (y, y) - i(y, x) - i(x, y) = (x, x) - (y, y) - 2i(x, y) = 0 \Rightarrow$$
+$$\Rightarrow (x, x) = (y, y), \: (x, y) = 0$$
+Не ограничивая общности считаем, что $|x| = |y| = 1$ (в противном случае нормируем - модули векторов равны, поэтому при нормировке вектора $x + iy, x - iy$ останутся собственными). \\
+Докажем ортогональность этих векторов с остальными векторами.
+$$(x - iy, c + id) = 0 \Rightarrow (x, c) + (y, d) + i(-(y, c) + (x, d)) = 0$$
+$$(x + iy, c + id) = 0 \Rightarrow (x, c) - (y, d) + i((y, c) + (x, d)) = 0$$
+Сложив, получим $(x, c) = (x, d) = 0$, вычев, получим $(y, d) = (y, c) = 0$.
+Таким образом, получили ортонормированный базис, в котором либо $Ax = \lambda x$,
+либо $A[x, y] = [x, y] \begin{bmatrix} a & b \\ -b & a\end{bmatrix}$ \blacksquare \\ \\ \\
+
+% 18 задача
+\subsection*{Задача 18:}
+\addcontentsline{toc}{subsection}{Задача 18:}
+\noindent Докажите, что для любой ортогональной матрицы существует вещественный ортонормированный базис, в котором она является прямой суммой вещественных матриц порядка 1
+с элементами $\pm1$ и вещественных матриц вращения порядка 2.\\ \\
+% Решение 18 задачи
+\textbf{\underline{Решение:}} Вещественная ортогональная матрица $Q$ является унитарной (в том числе нормальной) (т.к. $Q^* = Q^T = Q^{-1}$).
+Для нормальной матрицы можно применить рассуждения предыдущей задачи. У унитарной матрицы все собственные значения равны 1 по модулю $\Rightarrow$ 
+Блоки порядка 1 это [$\pm1$], а блоки вида  $\begin{bmatrix} a & b \\ -b & a\end{bmatrix}$ удовлетворяют соотношению
+$|a + ib| = a^2 + b^2 = 1 \Rightarrow a = \cos\alpha, b = \sin\alpha$ - в таком случае блоки порядка 2 являются матрицами вращения \blacksquare \\ \\ \\
+
+% 19 задача
+\subsection*{Задача 19:}
+\addcontentsline{toc}{subsection}{Задача 19:}
+\noindent Докажите, что если оператор обладает сопряженным оператором, то он сам и его сопряженный оператор 
+являются линейными операторами.\\ \\
+% Решение 19 задачи
+\textbf{\underline{Решение:}} \\
+Пусть $A: V \to W, B: W \to V$, $B = A^*$, $u,v \in V$, $\alpha, \beta$ - числа. $y \in W$
+$$(A(\alpha u + \beta v), y) = (\alpha u + \beta v, By) = \alpha(u, By) + \beta(v, By) = 
+\alpha(Au, By) + \beta(Av, y) = (\alpha Au + \beta Av, y)$$
+Равенство сверху верно для любого $y \in W$ - в силу произвольности выбора этого вектора.
+Пусть $y = A(\alpha u + \beta v) - \alpha Au - \beta Av$.
+$$(A(\alpha u + \beta v), y) - (\alpha Au + \beta Av, y) = 0 = (y, y) \Leftrightarrow y = 0 \Leftrightarrow A(\alpha u + \beta v) = \alpha Au + \beta Av$$
+Линейность сопряженного оператора доказывается аналогично - предоставляется читателю в качестве упражнения. \blacksquare \\ \\ \\
+
+% 20 задача
+\subsection*{Задача 20:}
+\addcontentsline{toc}{subsection}{Задача 20:}
+\noindent Докажите, что если унитарные пространства $V$ и $W$ конечномерны, то для любого линейного оператора $A: V \to W$ сопряженный оператор существует и единственен.\\ \\
+% Решение 20 задачи
+\textbf{\underline{Решение:}} \\
+Выберем ортонормированные базисы $e$, $g$: $V = L(e), W = L(g)$.
+$$[Ax]_e = [A]_e[x]_e, \: [By]_g = [B]_g[y]_g$$
+Вспомогательный факт: \\
+Пусть вектор $x = \sum\alpha_i f_i$, $y = \sum\beta_i f_i$  - разложили по некому ортонормированному базису пространства. Тогда
+$$(x, y) = (\sum\alpha_i f_i, \sum\beta_i f_i) = \sum\alpha_i\overline{\beta_i}(f_i, f_i) = \sum\alpha_i\overline{\beta_i} = ([x]_f, [y]_f)$$
+Пользуясь этим:
+$$(Ax, y)_W = (x, By)_V \Leftrightarrow ([Ax], [y]) = ([x], [By])$$
+$$[y]^*[Ax] = [y]^*[A][x] = [y]^*[B]^*[x] = [By]^*[x]$$
+$$[y]^*([A] - [B]^*)[x] = 0 \quad \forall x, y \Leftrightarrow [A] = [B]^*$$
+Таким образом сопряженный оператор всегда существует и задается матрицей $[B] = [A]^* \Rightarrow$ он единственен. \blacksquare \\ \\ \\
+
+% 21 задача
+\subsection*{Задача 21:}
+\addcontentsline{toc}{subsection}{Задача 21:}
+\noindent Докажите, что линейный оператор на комплексном конечномерном пространстве со скалярным произведением является
+нормальным относительно данного скалярного произведения тогда и только тогда, когда он обладает ортонормированным в заданном скалярном произведении 
+базисом из собственных векторов.\\ \\
+% Решение 21 задачи
+\textbf{\underline{Решение:}} \\
+$\boldsymbol{\Rightarrow}$ Зафиксируем ортонормированный базис пространства, в котором оператор $A$ принимает вид $[A]$.
+$AA^* = A^*A \Rightarrow [A][A]^* = [A]^*[A] \Rightarrow [A]$ - нормальная матрица $\Rightarrow [A] = Q\Lambda Q^*$. Тогда $Q^*$ - матрица перехода в новый базис. При этом он 
+также будет ортонормированным, т.к. при умножении на унитарную матрицу сохраняется ортонормированность. $\Rightarrow \exists g: [A]_g = \Lambda$. \\
+$\boldsymbol{\Leftarrow}$ Если есть ортонормированный базис из собственных векторов, то $[A]$ - нормальная матрица $\Rightarrow [A][A]^* = [A]^*[A]$.
+Оператор задается этой матрицей в ортонормированном базисе $\Rightarrow$ его поведение однозначно определено $\Rightarrow AA^* = A^*A$ \blacksquare \\ \\ \\
+
+% 22 задача
+\subsection*{Задача 22:}
+\addcontentsline{toc}{subsection}{Задача 22:}
+\noindent Докажите, что любой диагонализуемый линейный оператор на конечномерном пространстве можно сделать нормальны в некотором скалярном произведении.\\ \\
+% Решение 22 задачи
+\textbf{\underline{Решение:}} \\
+Оператор диагонализуемый $\Rightarrow \exists$ базис из с.в. Пусть это $e_1, \ldots, e_n$.
+Возьмем функцию $f(x, y) = \sum_{i=1}^n x_iy_i$, где $x = \sum x_i e_i$, $y = \sum y_i e_i$. Эта функция является скалярным произведением
+(проверка всех необходимых для скалярного произведения свойств предоставляется читателю в качестве упражнения).
+Тогда базис $e_1, \ldots, e_n$ будет ортонормированным на этом скалярном произведении $\Rightarrow$ оператор является нормальным. \blacksquare \\ \\ \\
+
+
+% 26 задача
+\subsection*{Задача 26:}
+\addcontentsline{toc}{subsection}{Задача 26:}
+\noindent Докажите, что полный набор ненулевых собственных значений матрицы $A^*A$ совпадает с полным набором ненулевых собственных значений матрицы $AA^*$.\\ \\
+% Решение 26 задачи
+\textbf{\underline{Решение:}} \\
+Пусть $A \in \mathbb{C}^{m \times n}$. Не ограничивая общности положим $m \leq n$. \\
+Запишем сингулярное разложение для $A$:
+$$A = U\Sigma V$$
+где $U \in \mathbb{C}^{m \times m}$, $V \in \mathbb{C}^{n \times n}$, $\Sigma = 
+\begin{pmatrix} 
+\sigma_1 & \ldots & 0 & \ldots & 0 \\
+\vdots & \ddots & \vdots & \ldots & \vdots \\
+0 & \ldots & \sigma_m & \ldots & 0 \\
+\end{pmatrix} \in \mathbb{C}^{m \times n}$ 
+$$\Rightarrow AA^* = U\Sigma\Sigma^* U^* = U
+\begin{pmatrix} 
+    \sigma_1^2 & 0 & \ldots & 0 \\
+    0 & \ddots & 0 & \vdots \\
+    \vdots & 0 & \ddots & 0 \\
+    0 & \ldots & 0 & \sigma_m^2 \\
+\end{pmatrix}U^*$$
+$$
+A^*A = V^*\Sigma^*\Sigma V = V^*
+\begin{pmatrix} 
+    \sigma_1^2 & 0 & \ldots & 0 & \ldots & 0\\
+    0 & \ddots & 0 & \vdots & \vdots & \vdots\\
+    \vdots & 0 & \sigma_m^2 & 0  & \ldots & \vdots\\
+    0 & \vdots & 0 & 0 & \ldots & \vdots\\
+    \vdots & \vdots & \vdots & \vdots & \ddots & 0\\
+    0 & 0 & 0 & 0 & 0 & 0 \\
+\end{pmatrix}V
+$$
+То есть собственные значения $AA^* - \{\sigma_1^2, \ldots, \sigma_m^2\}$, а собственные значения $A^*A - \{\sigma_1^2, \ldots, \sigma_m^2, 0, \ldots, 0 \}$ \blacksquare \\ \\ \\
+
+
+% 29 задача
+\subsection*{Задача 29:}
+\addcontentsline{toc}{subsection}{Задача 29:}
+\noindent Докажите, что фробениусова норма матрицы равна корню квадратному из суммы квадратов её сингулярных чисел.\\ \\
+% Решение 29 задачи
+\textbf{\underline{Решение:}} \\
+$A \in \mathbb{C}^{m \times n} \Rightarrow $ запишем сингулярное разложение матрицы $A$. \\
+$A = U\Sigma V$, где $U \in \mathbb{C}^{m \times m}, \Sigma \in \mathbb{C}^{m \times n}, V \in \mathbb{C}^{n \times n}$. \\
+Тогда $\Vert A\Vert_F = \sqrt{tr(A^*A)} = \sqrt{tr(V^*\Sigma^*U^*U\Sigma V)} = \sqrt{tr(V^*\Sigma^*\Sigma V)} = (tr(AB) = tr(BA)) = \sqrt{tr(VV^*\Sigma^*\Sigma)} = \sqrt{tr(\Sigma^*\Sigma)} = \sqrt{\sum_{i=1}^{r}|\sigma_i^2|}$, 
+где r = rg(A) = количество ненулевых сингулярных чисел. \blacksquare \\ \\ \\
+
+
+
+% 30 задача
+\subsection*{Задача 30:}
+\addcontentsline{toc}{subsection}{Задача 30:}
+\noindent Докажите, что если матрица $A$ обратима, то $\Vert A^{-1} \Vert_2 = 1 / \sigma_{min}$, где $\sigma_{min}$ - минимальное сингулярное число матрицы $A$.\\ \\
+% Решение 30 задачи
+\textbf{\underline{Решение:}} \\
+Известный факт, что $\Vert A \Vert_2 = \sigma_1 = \sigma_{max}$. $A = U\Sigma V$ - сингулярное разложение.
+$$ A^{-1} = V^*\Sigma^{-1}U^* = V^*
+\begin{pmatrix}
+\frac{1}{\sigma_1} & \ldots & 0 \\
+\vdots & \ddots & \vdots \\
+0 & \ldots & \frac{1}{\sigma_n} 
+\end{pmatrix} U^*
+$$
+Убедиться в вышеупомянутым факте можно, проверив равенство $AA^{-1} = I$. Оставим это в качестве упражнения читателю.
+$$
+\Rightarrow \Vert A^{-1} \Vert_2 = \Vert V^*\Sigma^{-1}U^* \Vert_2 = \Vert \Sigma^{-1} \Vert_2 = \sigma_{max}(\Sigma^{-1})$$
+В предпоследнем равенстве мы воспользовались свойством 2-нормы, а именно унитарной инвариантностью. Последнее равенство получается из упомянутого выше факта о связи $\Vert \cdot \Vert_2$ с максимальным сингулярным числом матрицы. \\
+$\sigma_{max}(\Sigma^{-1}) = \frac{1}{\sigma_{min}(\Sigma)}$, т.к. $\sigma_i \in \mathbb{R}$, $\sigma_i \geq 0$, причем в силу невырожденности матрицы $A$ знак строгий. В противном случае получается, что $AA^*$ имеет нулевое с.з. 
+(оно же сингулярное число $A$), что означало бы, что $kerAA^*$ нетривиально. Это в свою очередь означало бы, что $|AA^*| = |A|^2 = 0$ - противоречие с невырожденностью. 
+Поэтому $\sigma_i \neq 0$ и $\Vert A^{-1} \Vert_2 = \frac{1}{\sigma_{min}(A)}$ (нетрудно сообразить, что сингулярные числа $A$ и $\Sigma$ совпадают) \blacksquare \\ \\ \\
+
+% 31 задача
+\subsection*{Задача 31:}
+\addcontentsline{toc}{subsection}{Задача 31:}
+\noindent Дана квадратная матрица с нормой $\Vert A \Vert_2 \leq 1$. Докажите, что существуют квадратные матрицы $B$, $C$, $D$ такие, что матрица 
+$\left[ \begin{smallmatrix}
+        A & B \\
+        C & D \\
+        \end{smallmatrix}
+\right]$ является унитарной.\\ \\
+% Решение 31 задачи
+\textbf{\underline{Решение:}} \\
+По условию $\Vert A \Vert_2 = \sigma_{max}(A) \leq 1$, тогда $\sigma_i(A) \leq 1$, $i = \overline{1,n}$
+$$A = U\Sigma V, \text{ где } \Sigma = 
+\begin{pmatrix}
+    \sigma_1 & \ldots & 0 \\
+    \vdots & \ddots & \vdots \\
+    0 & \ldots & \sigma_n \\
+\end{pmatrix}
+$$
+$$
+\text{Заметим, что } \Sigma^* = \Sigma \Rightarrow \Sigma\Sigma^* = \Sigma^2 = 
+\begin{pmatrix}
+    \sigma_1^2 & \ldots & 0 \\
+    \vdots & \ddots & \vdots \\
+    0 & \ldots & \sigma_n^2 \\
+\end{pmatrix}
+\text{, где } \sigma_i^2 \leq 1 $$
+Рассмотрим матрицу диагональную $P = I - \Sigma^2$ - она, очевидно, эрмитова. Более того, она неотрицательно определена, т.к. её собственные значения неотрицательны: $1 - \sigma_i^2 \geq 0$. \\
+Поэтому $\exists! H = \sqrt{P}$. Теперь положим:
+$$ B = UH $$
+$$ C = HV $$
+$$ D = -\Sigma $$
+Тогда матрица 
+$\left[ \begin{smallmatrix}
+        A & B \\
+        C & D \\
+        \end{smallmatrix}
+\right]$ является унитарной. Проверка предоставляется читателю в качестве упражнения. \blacksquare \\ \\ \\
+
+% 32 задача
+\subsection*{Задача 32:}
+\addcontentsline{toc}{subsection}{Задача 32:}
+\noindent Заданы унитарные пространства $V, W$ и линейный оператор $A: V \to W$. Докажите, что ядро оператора $A^*: W \to V$ и образ оператора $A$ 
+являются взаимно дополнительными ортогональными подпространствами пространства $W$, а ядро оператора $A$ и образ $A^*$ являются 
+взаимно дополнительными ортогональными подпространствами пространства $V$.\\ \\
+% Решение 32 задачи
+\textbf{\underline{Решение:}} \\
+$$\forall y \in ImA \Rightarrow \exists x \in V: Ax = y$$
+$$\forall x \in kerA^* \Rightarrow A^*z = 0$$
+Тогда $(y, z) = (Ax, z) = (x, A^*z) = 0$, то есть $\forall y \in ImA$, $\forall z \in kerA^*$: $y \perp z \Rightarrow ImA \perp kerA^*$. 
+Чтобы доказать, что $ImA^* \perp kerA$ обозначим $A^* = B, A = B^*$ и применим предыдущие рассуждения. \blacksquare \\ \\ \\
+
+
+% 33 задача
+\subsection*{Задача 33:}
+\addcontentsline{toc}{subsection}{Задача 33:}
+\noindent Пусть $\sigma_1 \geq \sigma_2 \geq \ldots$ - сингулярные числа матрицы $A$, занумерованные по невозрастанию.
+Докажите, что $\underset{rank(B) \leq k}{min} \Vert A - B \Vert_2 = \sigma_{k+1}(A)$.\\ \\
+% Решение 33 задачи
+\textbf{\underline{Решение:}} \\
+Данный факт является теоремой о малоранговых приближениях. По теореме о сингулярном разложении $A = \sum_{i=1}^r \sigma_iv_iu_i^*$, причем
+$$Au_i =
+    \begin{cases}
+    \sigma_iv_i, &\quad i = \overline{1,r} \\
+    0, &\quad i = \overline{r+1, n}
+    \end{cases} $$
+Обозначим $A_k = \sum_{i=1}^k \sigma_iv_iu_i^*$ ($k \leq r$). Докажем, что $\underset{rank(B) \leq k}{min} \Vert A - B \Vert_2 = \Vert A - A_k \Vert_2 = \sigma_{k+1}$.
+Рассмотрим $M = L(u_1, \ldots, u_{k+1})$ и $L = kerB$. По теореме Грассмана: $dim(M\cap L) = dimM + dimL - dim(M + L) \geq k + 1 + n - k - n = 1 \
+\Rightarrow \exists z \neq 0: z \in M \cap L$. Тогда 
+$$\Vert A - B\Vert_2 = max \frac{\Vert (A - B)x\Vert_2}{\Vert x\Vert_2} \geq \frac{\Vert (A - B)z\Vert_2}{\Vert z\Vert_2} = \frac{\Vert Az\Vert_2}{\Vert z\Vert_2} \geq \underset{x\in M}{min} \frac{\Vert Ax\Vert_2}{\Vert x\Vert_2}$$
+Покажем, что $\underset{x\in M}{min}\frac{\Vert Ax\Vert_2}{\Vert x\Vert_2} = \sigma_{k+1}$. $x \in M \Rightarrow x = \sum_{i=1}^{k+1}\alpha_iu_i$ - разложение по базису $M$.
+Тогда $Ax = \sum_{i=1}^{k+1}\sigma_i\alpha_iv_i \Rightarrow$
+$$\frac{\Vert Ax\Vert_2}{\Vert x\Vert_2} = \sqrt{\frac{\sum_{i=1}^{k+1}\sigma_i^2\alpha_i^2}{\sum_{i=1}^{k+1}\alpha_i^2}}
+\geq \sigma_{k+1} \sqrt{\frac{\sum_{i=1}^{k+1}\alpha_i^2}{\sum_{i=1}^{k+1}\alpha_i^2}} = \sigma_{k+1}$$
+Причем минимум достигается на матрице $A_k$ - проверка этого факта предоставляется читателю в качестве упражнения. \blacksquare \\ \\ \\
+
+% 34 задача
+\subsection*{Задача 34:}
+\addcontentsline{toc}{subsection}{Задача 34:}
+\noindent Пусть $A$ - комплексная квадратная матрица и $H_A = (A + A^*) / 2$. Докажите, что для произвольной эрмитовой матрицы $H$
+такого же порядка имеет место неравенство $\Vert A - H_A \Vert_2 \leq \Vert A - H \Vert_2$.\\ \\
+% Решение 34 задачи
+\textbf{\underline{Решение:}} \\
+$$ \Vert A - H_A \Vert_2 = \Vert A - \frac{A + A^*}{2} \Vert_2 = \Vert \frac{A - A^*}{2} \Vert_2 = \frac{1}{2} \Vert A - A^* \Vert_2 = $$
+$$ = \frac{1}{2} (\Vert A - H + H - A^*) \Vert_2 \leq \frac{1}{2}(\Vert A - H \Vert_2 + \Vert A^* - H\Vert_2) = $$
+$$ = \frac{1}{2}(\Vert A - H \Vert_2 + \Vert (A - H)^* \Vert_2) = \frac{1}{2}(\Vert A - H \Vert_2 + \Vert A - H \Vert_2) = \Vert A - H \Vert_2$$
+Для строгости покажем, что $\Vert B \Vert_2 = \Vert B^* \Vert_2 \: \forall B$:
+$$B = U\Sigma V \Rightarrow \Vert B \Vert_2 = \Vert \Sigma\Vert_2 = \sigma_1$$
+$$B^* = V^*\Sigma^* U^* \Rightarrow \Vert B^* \Vert_2 = \Vert \Sigma^*\Vert_2 = \sigma_1 \: \blacksquare$$\\
+
+% 35 задача
+\subsection*{Задача 35:}
+\addcontentsline{toc}{subsection}{Задача 35:}
+\noindent Докажите, что для любой неотрицательно определенной комплексной матрицы неотрицательно определенный квадратный корень существует и единственен.\\ \\
+% Решение 35 задачи
+\textbf{\underline{Решение:}} \\
+Пусть матрица $A$ - неотрицательно определена $\Rightarrow A = A^*$. Тогда она диагонализуема: $A = Q\Lambda Q^*$, где 
+$$\Lambda = \begin{bmatrix}
+\lambda_1 & 0 & \ldots & \ldots & \ldots & 0 \\
+0 & \ddots & & & & \vdots\\
+\vdots & & \lambda_r & & & \vdots \\
+\vdots & & & 0 & & \vdots \\
+\vdots & & & & \ddots &\vdots \\
+0 & \ldots& \ldots& \ldots& \ldots& 0 \\
+\end{bmatrix}}$$ 
+Пусть матрица $B$ - такая, что $$B = 
+Q \begin{bmatrix}
+    \sqrt{\lambda_1} & 0 & \ldots & \ldots & \ldots & 0 \\
+    0 & \ddots & & & & \vdots\\
+    \vdots & & \sqrt{\lambda_r} & & & \vdots \\
+    \vdots & & & 0 & & \vdots \\
+    \vdots & & & & \ddots &\vdots \\
+    0 & \ldots& \ldots& \ldots& \ldots& 0 \\
+    \end{bmatrix} Q^* $$
+Тогда $BB = A$ - квадратный корень. Докажем, что такая матрица единственная. \\
+Пусть $H - PDP^*$ - квадратный корень и $D$ - диагональная. В таком случае
+$$HH = PDDP^* = P\begin{bmatrix}
+d_1^2 & \ldots & 0 \\
+\vdots & \ddots & \vdots \\
+0 & \ldots &d_n^2\\
+\end{bmatrix}P^* = A$$
+Возьмем  базис из собственных векторов матрицы $A$, который составляет матрицу $P$. 
+Пусть $Ax = \lambda x \: (\lambda = \sqrt{d_i^2})$ и $x = \sum \alpha_i p_i \Rightarrow Hx = \sum \alpha_i \sqrt{\lambda} p_i = \sqrt{\lambda}x$
+Действие $H$ на любой вектор определено однозначно, поэтому $H$ - единственен.\blacksquare \\ \\ \\
+
+% 36 задача
+\subsection*{Задача 36:}
+\addcontentsline{toc}{subsection}{Задача 36:}
+\noindent Докажите, что любая комплексная квадратная матрица $A$ имеет полярное разложение $A = HQ$ и при этом матрица $H$ определена однозначно.\\ \\
+% Решение 36 задачи
+\textbf{\underline{Решение:}} \\
+Рассмотрим два доказательства этого утверждения. Одно из них независимое, другое - с использованием сингулярного разложения.
+\begin{enumerate}
+\item \textbf{SVD:}
+$$A = U\Sigma V = U\Sigma U^*U V = (U\Sigma U^*)(UV) = HQ$$
+Причем $H^* = H$ и $QQ^* = UVV^*U^* = I$. Далее заметим, что $H^2 = U\Sigma^2U^* = U\Sigma VV^* \Sigma U^* = AA^*$, то есть $H$ это квадратный корень неотрицательно определенной матрицы $AA^* \Rightarrow$ он единственный.
+\item \textbf{Независимое доказательство:} \\
+Пусть $A$ - невырождена. В таком случае матрица $AA^*$ - положительно определенная. В самом деле, неотрицательная определенность проверяется напрямую ($x^*AA^*x = (A^*x, A^*x) \geq 0$), а в силу невырожденности ядро $A$ (как и ядро $AA^*$) тривиально.
+Поэтому $\exists! \, H: H^2 = AA^*$ - квадратный корень, причем $H > 0$ (из чего следует невырожденность). \\
+Пусть $Q := H^{-1}A$, тогда $QQ^* = H^{-1}AA^*H^{-1} = I$ - следует из того, что $H$ - эрмитова. Таким образом, мы получили разложение в случае невырожденной матрицы $A$. \\
+Пусть $|A| = 0$. Тогда $$A = \lim_{k \to +\infty}A_k, \, |A_k| \neq 0$$
+Вырожденная матрица является пределом невырожденных - хорошо известный факт. Для $A_k$ имеем полярное разложение $A_k = H_kQ_k \Rightarrow H_k = A_kQ_k^*$. $\{Q_k\}$ - ограниченная последовательность 
+(в силу ограниченности единицей каждого элемента унитарной матрицы), поэтому выделим подпоследовательность $\{Q_{k_l}\}$, в которой сходится каждый элемент матрицы (теорема Больцано-Вейерштрасса).
+Пусть $Q_{k_l} \to Q \:(Q_{k_l}^* \to Q^*)$, тогда $H_{k_l} = A_{k_l}Q_{k_l}^* \to AQ^* = H$, причем матрица $H$ - неотрицательно определена:
+$$ x^*Hx = x^*AQQ^*A^*x = (A^*x, A^*x) \geq 0$$
+Поэтому полярное разложение существует и для вырожденных матриц. \blacksquare \\ \\ \\
+\end{enumerate}
+
+% 37 задача
+\subsection*{Задача 37:}
+\addcontentsline{toc}{subsection}{Задача 37:}
+\noindent Пусть $A = \sum_{i=1}^{r}\sigma_i v_i u_i^*$ - сингулярное разложение матрицы, $r = rank(A)$. Докажите, что нормальное псевдорешение (возможно, несовместной) системы $Ax = b$ имеет вид:
+$$ z = \sum_{i=1}^{r} \frac{v_i^* b}{\sigma_i}u_i = A^\dagger b, \quad A^\dagger = \sum_{i=1}^{r} \frac{1}{\sigma_i}u_i v_i^* $$
+% Решение 37 задачи
+\textbf{\underline{Решение:}} \\
+$A = \sum_{i=1}^r\sigma_i v_i u_i^*$, $r = rank(A)$. Рассмотрим $z = \sum_{i=1}^{r} \frac{v_i^* b}{\sigma_i}u_i$ - проверим условия нормального псевдорешения:
+\begin{enumerate}
+    \item $b - Az \perp imA$ \item $z \perp kerA$
+\end{enumerate}
+$$ Az = A\sum_{i=1}^{r} \!\!\!\!\!\!\underbrace{\frac{v_i^* b}{\sigma_i}}_{\text{просто число}}\!\!\!\!\!\!\!u_i = \sum_{i=1}^{r} \frac{v_i^* b}{\sigma_i}\sigma_i v_i = \sum_{i=1}^{r} v_i^* b v_i$$
+Здесь мы воспользовались тем, что $Au_i = \sigma_i v_i$
+\begin{enumerate}
+    \item Разложим $b$ в базисе $v_i$ (столбцы унитарной матрицы $V$, очевидно, являются базисом)
+    $$b = \sum_{i=1}^m \alpha_i v_i, \text{ причем в этом базисе } b = (\alpha_1, \ldots, \alpha_m), v_i = (0, \ldots,\underset{i}{1},\ldots, 0)$$
+    $$\Rightarrow \alpha_i = v_i^* b \Rightarrow b = \sum_{i=1}^m v_i^* b v_i$$
+    $$\Rightarrow b - Az = \sum_{i=r+1}^m v_i^* b v_i \Rightarrow b - Az \in L(v_{r+1}, \ldots, v_m) \perp im(A) = L(v_1, \ldots, v_r)$$
+    \item Рассмотрим вектор $z$ и произвольный вектор $y \in kerA$: 
+    $$z = \sum_{i=1}^r \frac{v_i^* b}{\sigma_i}u_i$$ 
+    $$\forall y \in kerA: y = \sum_{i=r+1}^m \beta_i u_i \perp z \, \blacksquare$$
+\end{enumerate}
+
+% 38 задача
+\subsection*{Задача 38:}
+\addcontentsline{toc}{subsection}{Задача 38:}
+\noindent Пусть $A$ - комплексная матрица. Докажите, что её псевдообратная матрица является единственным решением системы уравнений.
+$$AXA = A,\, XAX = X,\, (AX)^* = AX,\, (XA)^* = XA$$ \\ \\
+% Решение 38 задачи
+\textbf{\underline{Решение:}} \\
+Из прошлой задачи имеем:
+$$A = \sum_{i=1}^{r}\sigma_i v_i u_i^* = V\Sigma U^*$$
+$$z = \sum_{i=1}^{r} \frac{v_i^* b}{\sigma_i}u_i = A^\dagger b$$
+$$A^\dagger = \sum_{i=1}^{r} \frac{1}{\sigma_i}u_i v_i^* = U\Sigma^\dagger V^*$$
+$$\Sigma^\dagger = 
+\begin{pmatrix}
+\frac{1}{\sigma_1} & 0 & \ldots & \ldots & 0 \\
+0 & \ddots &  &  & \vdots \\
+\vdots & & \frac{1}{\sigma_r} & & \vdots \\
+\vdots & & & 0 &. \\
+\vdots & \ldots& \ldots&. & \ddots \\
+\end{pmatrix}
+$$
+Проверим, что $A^\dagger$ удовлетворяет системе ($X = A^\dagger$):
+$$AXA = V\Sigma U^*U\Sigma^\dagger V^* V \Sigma U^* = V\Sigma U^* = A$$
+$$XAX = U\Sigma^\dagger V^*V \Sigma U^*U \Sigma^\dagger V^* = U\Sigma^\dagger V^* = A^\dagger$$
+Проверка $AA^\dagger = (AA^\dagger)^*$ и $A^\dagger A = (A^\dagger A)^*$ предоставляется читателю в качестве упражнения.
+Таким образом, $A^\dagger$ действительно удовлетворяет системе. Докажем, что решение единственно. \\
+Пусть $X$ = решение системы, в таком случае $(AX)^2 = AXAX = AX$, $(XA)^2 = XAXA = XA \Rightarrow$ $AX$ и $XA$ являются матрицами проектирования. Кроме того они эрмитовы, поэтому по теореме о ядрах и образах:
+$$ker(AX) \overset{\perp}{\oplus} im((AX)^*) = \mathbb{C}^m$$
+$$ker(XA) \overset{\perp}{\oplus} im((XA)^*) = \mathbb{C}^n$$ 
+Где $\overset{\perp}{\oplus}$ означает ортогональную прямую сумму. Пользуясь эрмитовостью, убираем знак сопряжения:
+$$ker(AX) \overset{\perp}{\oplus} im(AX) = \mathbb{C}^m$$
+$$ker(XA) \overset{\perp}{\oplus} im(XA) = \mathbb{C}^n$$ 
+Тогда положим $z := Xb$. Заметим, что $b - AXb \in ker(AX)$ (в силу того, что $AX = (AX)^2$). Тогда $b - AXb \perp im(AX)$. \\
+Также $z = Xb = XAXb \Rightarrow z \in im(XA) \Rightarrow z \perp ker(XA)$. Получили условия, похожие на условия нормального псевдорешения.
+Докажем, что эти условия эквивалентны условиям нормального псевдорешения. В самом деле:
+$$\forall y \in im(AX): y = AXp = A(Xp) \Rightarrow y \in im(A) \Rightarrow im(AX) \subseteq im(A)$$
+$$\forall y \in im(A): y = Ap = AX(Ap) \Rightarrow y \in im(AX) \Rightarrow im(A) \subseteq im(AX) \Rightarrow im(A) = im(AX)$$
+$$\forall y \in ker(A): Ay = \theta \Rightarrow XAy = \theta \Rightarrow ker(A) \subseteq ker(XA)$$
+$$\forall y \in ker(XA): XAy = \theta \Rightarrow AXAy = Ay = \theta \Rightarrow ker(XA) \subseteq ker(A) \Rightarrow ker(A) = ker(XA)$$
+Таким образом $z = Xb$ - нормальное псевдорешение $\Rightarrow X = A^\dagger$ \blacksquare \\ \\ \\
+
+% 39 задача
+\subsection*{Задача 39:}
+\addcontentsline{toc}{subsection}{Задача 39:}
+\noindent Найдите нормальное псевдорешение несовместной системы 
+$$x_1 + x_2 + \ldots + x_n = 1, \: x_1 + x_2 + \ldots + x_n = 0$$\\ \\
+% Решение 39 задачи
+\textbf{\underline{Решение:}} \\
+В данном решении представлен лишь алгоритм действий - все вычисления опущены автором для удобства. Решение со всеми вычислениями предлагается выполнить читателю в качестве упражнения.
+$$A = \begin{pmatrix} 1 & 1 & \ldots 1 \\ 1 & 1 & \ldots 1 \\ \end{pmatrix} \in \mathbb{R}^{2 \times n},\, b = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$$
+$A = v\sqrt{2n}u^*$ - сингулярное разложение, где 
+$$v = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 1 \\ \end{pmatrix}, \: u^* = \frac{1}{\sqrt{n}}\begin{pmatrix} 1 & 1 & \ldots & 1 \\ \end{pmatrix}$$
+Ранг матрицы $A$ равен 1 (очевидно). Тогда пользуясь формулой из задачи 37 (этого раздела):
+$$z = \sum_{i=1}^r \frac{v_i^* b}{\sigma_i}u_i = \frac{v^*b}{\sigma}u = \frac{1}{2n} 
+\begin{pmatrix}
+1 \\ 1 \\ \vdots \\ 1 \\
+\end{pmatrix} \in \mathbb{R}^n $$
+Полученный вектор и является нормальным псевдорешением заданной системы. \blacksquare \\ \\ \\
+
+
+% 40 задача
+\subsection*{Задача 40:}
+\addcontentsline{toc}{subsection}{Задача 40:}
+\noindent Докажите, что система вида $A^*Ax = A^*b$ всегда совместна, а множество её решения совпадает
+с множеством псевдорешений (возможно несовместной) системы $Ax = b$. \\ \\
+% Решение 40 задачи
+\textbf{\underline{Решение:}} \\
+$A = V\Sigma U^*$, тогда
+$$(V\Sigma U^*)^* V\Sigma U^*x = U\Sigma^*V^*b$$
+$$U\Sigma^*V^*V\Sigma U^*x = U\Sigma^*V^*b | \cdot U^*$$
+$$\Sigma^*\Sigma U^*x = \Sigma^*V^*b$$
+Сделаем взаимно однозначную замену $y = U^*x$:
+$$\Sigma^*\Sigma y = \Sigma^*V^*b$$
+$rg(\Sigma^*) = r$ и $dim(L(\Sigma^*)) = r$ (линейная оболочка столбцов $\Sigma^*$). \\
+$rg(\Sigma^*\Sigma) = r$ и $L(\Sigma^*\Sigma) \subseteq L(\Sigma^*) \Rightarrow L(\Sigma^*\Sigma) = L(\Sigma^*)$, но $\Sigma^*(V^*b) \in L(\Sigma^*) = L(\Sigma^*\Sigma) \Rightarrow rg(\Sigma^*\Sigma) = rg(\Sigma^*\Sigma|\Sigma^*V^*b) \Rightarrow$
+по критерию Кронекера-Капелли система совместна.
+
+
+% 42 задача
+\subsection*{Задача 42:}
+\addcontentsline{toc}{subsection}{Задача 42:}
+\noindent Пусть $A$ и $B$ - эрмитовы матрицы и одна из них положительно определенная. Докажите, что существует невырожденная матрица $P$ такая, что обе матрицы $P^*AP$ и $P^*BP$ диагональные.\\ \\
+% Решение 42 задачи
+\textbf{\underline{Решение:}} \\
+Пусть $A > 0 \Rightarrow P_1AP^*_1 = I$ (по закону инерции) и $|P_1| \neq 0$. $P_1BP^*_1$ - эрмитова, поэтому $\exists Q - \text{унитарная}: QP_1BP^*_1Q^* = \Lambda$. \\
+Положим $P = QP_1 \Rightarrow PBP^* = \Lambda$ - диагональная и $PAP^* = QP_1AP^*_1Q^* = QIQ^* = I$ - диагональная, причем $|P| = |Q||P_1| \neq 0$ \blacksquare \\ \\ \\
+
+
+% 47 задача
+\subsection*{Задача 47:}
+\addcontentsline{toc}{subsection}{Задача 47:}
+\noindent Пусть $A$ и $B$ - эрмитовы матрицы порядка $n$, собственные значения упорядочиваются по невозрастанию. Докажите, что $\lambda_{i}(A + B) \leq \lambda_{i}(A) + \lambda_{i}(B)$ \\ \\
+% Решение 47 задачи
+\textbf{\underline{Решение:}} \\
+По т. Куранта-Фишера: \\
+$$\lambda_{i}(A + B) = \underset{L_{i}}{max} \, \underset{x \in L_{i}}{min} \frac{((A + B)x, x)}{(x x)} = 
+\underset{L_{i}}{max} \, \underset{x \in L_{i}}{min} \left(\frac{(Ax, x)}{(x, x)} + \frac{(Bx, x)}{(x, x)}\right)$$
+$$\lambda_1(B) = \underset{L_1}{max} \, \underset{x \in L_1}{min} \frac{(Bx, x)}{(x x)} = \underset{x}{max}\frac{(Bx, x)}{(x x)} \geq \frac{(Bx, x)}{(x x)} \,\forall\, x$$
+$$ \Rightarrow \lambda_{i}(A + B) = \underset{L_{i}}{max} \, \underset{x \in L_{i}}{min} \left(\frac{(Ax, x)}{(x, x)} + \underbrace{\frac{(Bx, x)}{(x, x)}}_{\leq \lambda_1(B)}\right) \leq
+\underset{L_{i}}{max} \, \underset{x \in L_{i}}{min} \left(\frac{(Ax, x)}{(x, x)} + \lambda_1(B)\right) =$$ \\ 
+$$= \underset{L_{i}}{max} \, \underset{x \in L_{i}}{min} \left(\frac{(Ax, x)}{(x, x)}\right) + \lambda_1(B) = \lambda_{i}(A) + \lambda_1(B) \,\blacksquare$$\\ \\ \\
+
+% 49 задача
+\subsection*{Задача 49:}
+\addcontentsline{toc}{subsection}{Задача 49:}
+\noindent Пусть $\sigma_1 \geq \sigma_2 \geq \ldots$ - сингулярные числа матрицы $A$ размеров $m \times n$. Докажите, что: \\
+$$
+\sigma_{k} = \underset{\underset{L \subset \mathbb{C}^n}{dim L = k}}{max} \, \underset{\underset{x \neq 0}{x \in L}}{min} \frac{||Ax||_2}{||x||_2} = 
+\underset{\underset{L \subset \mathbb{C}^n}{dim L = n - k + 1}}{min} \underset{\underset{x \neq 0}{x \in L}}{max} \frac{||Ax||_2}{||x||_2} $$
+% Решение 49 задачи
+\textbf{\underline{Решение:}} \\
+По определению: \\
+$$
+\sigma_{k}(A) = \sqrt{\lambda_{k}(A^*A)} \overset{\text{(Курант-Фишер)}}{=} 
+\sqrt{\underset{\underset{L \subset \mathbb{C}^n}{dim L = k}}{max} \, \underset{\underset{x \neq 0}{x \in L}}{min} \frac{x^*(A^*A)x}{x^*x}} \overset{\text{(Неотрицательные числа)}}{=} $$ 
+$$
+= \underset{\underset{L \subset \mathbb{C}^n}{dim L = k}}{max} \, \underset{\underset{x \neq 0}{x \in L}}{min} \sqrt{\frac{x^*(A^*A)x}{x^*x}} =
+\underset{\underset{L \subset \mathbb{C}^n}{dim L = k}}{max} \, \underset{\underset{x \neq 0}{x \in L}}{min} \frac{||Ax||_2}{||x||_2} \,\blacksquare $$ \\ \\ \\
+
+
+
+% 51 задача
+\subsection*{Задача 51:}
+\addcontentsline{toc}{subsection}{Задача 51:}
+\noindent Приведите пример эрмитовой матрицы, в которой все ведущие миноры неотрицательны, но матрица неотрицательно определенной не является \\ \\
+% Решение 51 задачи
+\textbf{\underline{Решение:}} \\
+Рассмотрим матрицу $H$ (она эрмитова) 
+$$\begin{pmatrix}
+    10 & 10 & \frac{1}{2} \\
+    10 & 10 & \frac{1}{2} \\
+    \frac{1}{2} & \frac{1}{2} & -1 \\
+\end{pmatrix}$$ \\
+$\Delta_1 = 10 > 0$ \\
+$\Delta_2 = 0 \geq 0$ \\
+$\Delta_3 = |H| = 0 \geq 0$ \\
+Возьмём $x = (0\,0\,1)^{T}$. Тогда: \\
+$$ x^{*}Hx =
+\begin{pmatrix}
+    0 & 0 & 1 \\
+\end{pmatrix}    
+\begin{pmatrix}
+    10 & 10 & \frac{1}{2} \\
+    10 & 10 & \frac{1}{2} \\
+    \frac{1}{2} & \frac{1}{2} & -1 \\
+\end{pmatrix} 
+\begin{pmatrix}
+    0 \\ 0 \\ 1 \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+    \frac{1}{2} & \frac{1}{2} & -1 \\
+\end{pmatrix}    
+\begin{pmatrix}
+    0 \\ 0 \\ 1 \\
+\end{pmatrix}
+= -1 < 0
+$$ \\
+$\Rightarrow$ матрица $H$ не является неотрицательно определенной. \blacksquare \\ \\ \\
+
+
+% 52 задача
+\subsection*{Задача 52*:}
+\addcontentsline{toc}{subsection}{Задача 52:}
+\noindent В $n$-мерном унитарном пространстве задан ортонормированный базис. Докажите, что сумма квадратов длин ортогональных проекций его векторов на произвольное подпространство размерности $n-1$ равна $n-1$.\\ \\
+% Решение 52 задачи
+\textbf{\underline{Решение:}} \\
+Авторы предлагают эту задачу для самостоятельного решения. В случае нахождения такового, просьба связаться с авторами для добавления его в сборник (с указанием автора).
+
+% 58 задача
+\subsection*{Задача 58*:}
+\addcontentsline{toc}{subsection}{Задача 58:}
+\noindent Докажите, что любая ортогональная матрица является произведением конечного числа матриц отражения.\\ \\
+% Решение 58 задачи
+\textbf{\underline{Решение:}} \\
+Авторы предлагают эту задачу для самостоятельного решения. В случае нахождения такового, просьба связаться с авторами для добавления его в сборник (с указанием автора).
+
+% 59 задача
+\subsection*{Задача 59*:}
+\addcontentsline{toc}{subsection}{Задача 59:}
+\noindent Докажите, что эрмитова матрица $A \in \mathbb{C}^{n \times n}$ является неотрицательно определенной тогда и только тогда, когда её главные миноры неотрицательны.\\ \\
+% Решение 59 задачи
+\textbf{\underline{Решение:}} \\
+Авторы предлагают эту задачу для самостоятельного решения. В случае нахождения такового, просьба связаться с авторами для добавления его в сборник (с указанием автора).
+
+% 61 задача
+\subsection*{Задача 61:}
+\addcontentsline{toc}{subsection}{Задача 61:}
+\noindent Пусть $A$ и $B$ - эрмитовы матрицы порядка $n$, собственные значения упорядочиваются по невозрастанию. Докажите, что:\\
+$$ \sum_{i=1}^{k}\lambda_{i}(A + B) \leq \sum_{i=1}^{k}\lambda_{i}(A) + \sum_{i=1}^{k}\lambda_{i}(B), \quad 1 \leq k \leq n. $$
+% Решение 61 задачи
+\textbf{\underline{Решение:}} \\
+Пусть $Q_k$ - k ортонормированных $q_i$: $(A + B)q_i = \lambda_i q_i$ \\
+$\Rightarrow$ $Q^*_k(\underbrace{A_k + B_k}_{\text{подматрицы}})Q_k = \begin{pmatrix}
+                                \lambda_1 & 0 & \ldots & 0 \\
+                                0 & \lambda_2 & \ldots & \vdots\\
+                                \vdots & \ldots & \ldots & 0\\
+                                0 & \ldots & 0 & \lambda_n
+                            \end{pmatrix}$ (\small автор не помнит, почему это так) \\
+$$
+\sum_{i=1}^{k}\lambda_{i}(A + B) = tr(Q^*_k(A_k + B_k)Q_k) = tr(Q^*_kA_kQ_k) + tr(Q^*_kB_kQ_k)
+$$
+Дополним $Q_k$ до унитарной: $Q := [Q_k | Q'] \Rightarrow QQ^* = I$.\\
+$$Q^*AQ = 
+\begin{pmatrix}
+    Q^*_kA_kQ_k & \ldots \\
+    \ldots & \ldots \\
+\end{pmatrix} $$
+$$ \lambda_i(Q^*AQ) = \lambda_i(A) - \text{собственные значения инвариантны относительно подобия.}$$
+$$\Rightarrow \lambda_i(A) \geq \lambda_i(Q^*_k(A_k + B_k)Q_k) \Rightarrow tr(A) \geq tr(Q^*_kA_kQ_k)$$
+$$ \text{Аналогично } tr(B) \geq tr(Q^*_kB_kQ_k)$$
+$$\Rightarrow \sum_{i=1}^{k}\lambda_i(A + B) \leq \sum_{i=1}^{k}\lambda_i(A) + \sum_{i=1}^{k}\lambda_i(B) \, \blacksquare$$ \\ \\ \\
+
+
+% 62 задача
+\subsection*{Задача 62:}
+\addcontentsline{toc}{subsection}{Задача 62:}
+\noindent Докажите, что если $\alpha > 0$, то $\Vert (A^*A + \alpha I)^{-1}A^*b\Vert_2 \leq \Vert b \Vert_2 / \sqrt{\alpha}$.\\ \\
+% Решение 62 задачи
+\textbf{\underline{Решение:}} \\
+Пусть $A = U\Sigma V$ - сингулярное разложение, тогда $A^* = V^*\Sigma^*U^*$, $A \in \mathbb{C}^{m \times n}$ (Пусть $m \geq n$).
+$$\Vert (A^*A + \alpha I)^{-1}A^*b\Vert_2 \leq \Vert (A^*A + \alpha I)^{-1}A^*\Vert_2 \Vert b \Vert_2 = 
+\Vert (V^*\Sigma^*\Sigma V + \alpha V^*V)^{-1}V^*\Sigma^*U^* \Vert_2 \Vert b \Vert_2 = $$
+$$ = \Vert (V^*(\Sigma^*\Sigma + \alpha I)V)^{-1}V^*\Sigma^*U^* \Vert_2 \Vert b \Vert_2 =
+\Vert V^* (\Sigma^*\Sigma + \alpha I)^{-1} VV^* \Sigma^* U^*\Vert_2 \Vert b \Vert_2 = $$
+$$ = \Vert (\Sigma^*\Sigma + \alpha I)^{-1}\Sigma^*\Vert_2 \Vert b \Vert_2 $$
+$$ (\Sigma^*\Sigma + \alpha I)^{-1} = 
+\begin{pmatrix}
+    \frac{1}{\sigma_1^2 + \alpha} & \ldots & 0 \\
+    \vdots & \ddots & \vdots \\
+    0 & \ldots & \frac{1}{\sigma_n^2 + \alpha}
+\end{pmatrix} \Rightarrow $$
+$$
+(\Sigma^*\Sigma + \alpha I)^{-1} \Sigma^* = 
+\begin{pmatrix}
+    \frac{\sigma_1}{\sigma_1^2 + \alpha} & \ldots & 0 & \ldots & 0\\
+    \vdots & \ddots & \vdots & & \vdots \\
+    0 & \ldots & \frac{\sigma_n}{\sigma_n^2 + \alpha} & \ldots & 0
+\end{pmatrix}
+$$
+Тогда в итоге получаем ($i$ - некий номер, соответствующий максимальному сингулярному числу указанной выше матрицы):
+$$ \Vert (\Sigma^*\Sigma + \alpha I)^{-1}\Sigma^*\Vert_2 \Vert b \Vert_2 = \frac{\sigma_i}{\sigma_i^2 + \alpha}\Vert b \Vert_2 \leq
+\frac{\sigma_i}{2\sqrt{\alpha}\sigma_i}\Vert b \Vert_2 \leq \frac{\Vert b \Vert_2}{\sqrt{\alpha}} \, \blacksquare$$ \\
+
+% 66 задача
+\subsection*{Задача 66*:}
+\addcontentsline{toc}{subsection}{Задача 66:}
+\noindent Докажите, что минимальное значение функционала $f(x) = \Vert b - Ax \Vert_2^2 + \alpha \Vert x\Vert_2^2$
+при фиксированном значении $\alpha > 0$ достигается на решении системы $(A^*A + \alpha I)x = A^*b$.\\ \\
+% Решение 66 задачи
+\textbf{\underline{Решение:}} \\
+Авторы предлагают эту задачу для самостоятельного решения. В случае нахождения такового, просьба связаться с авторами для добавления его в сборник (с указанием автора).
+
+% 68 задача
+\subsection*{Задача 68*:}
+\addcontentsline{toc}{subsection}{Задача 68:}
+\noindent Даны эрмитова матрица $H$ и столбец $b$. Докажите неравенство
+$$ \left\Vert \begin{bmatrix} H & b \\ b^* & 0 \end{bmatrix}\right\Vert_2 \leq \frac{\Vert H \Vert_2 + \sqrt{\Vert H \Vert_2^2 + 4 \Vert b \Vert_2^2}}{2}$$ \\ \\
+% Решение 68 задачи
+\textbf{\underline{Решение:}} \\
+Авторы предлагают эту задачу для самостоятельного решения. В случае нахождения такового, просьба связаться с авторами для добавления его в сборник (с указанием автора).
 
 
 \end{document}
